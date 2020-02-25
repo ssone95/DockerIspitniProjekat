@@ -1,0 +1,84 @@
+version: '3.4'
+
+services:
+#  ui:
+#    image: ${DOCKER_REGISTRY-}ui
+#    container_name: 'FRONT'
+#    build:
+#      context: .
+#      dockerfile: UI/Dockerfile
+#    networks:
+#      webNetwork:
+#        ipv4_address: 10.5.0.5
+#    depends_on:
+#     - api
+  blazorui:
+    image: ${DOCKER_REGISTRY-}blazorui
+    container_name: 'BLAZORUI'
+    build:
+      context: .
+      dockerfile: BlazorUI/Dockerfile
+    environment:
+      ASPNETCORE_ENVIRONMENT: "Development"
+      ASPNETCORE_URLS: "https://0.0.0.0:443;http://0.0.0.0:80"
+      ASPNETCORE_HTTPS_PORT: "5006"
+      API_BASE_URL: "https://host.docker.internal:5002"
+    ports:
+      - "5005:80"
+      - "5006:443"
+    networks:
+      webNetwork:
+        ipv4_address: 10.5.0.11
+    depends_on:
+     - api
+
+  api:
+    image: ${DOCKER_REGISTRY-}api
+    container_name: 'BACK'
+    environment:
+      DB_CONNECTION_STRING: "username=postgres;password=Secret123;host=10.5.0.7;port=5432;Database=DockerStore;"
+      ASPNETCORE_ENVIRONMENT: "Development"
+      ASPNETCORE_URLS: "https://0.0.0.0:443;http://0.0.0.0:80"
+      ASPNETCORE_HTTPS_PORT: "5002"
+    ports:
+      - "5001:80"
+      - "5002:443"
+    build:
+      context: .
+      dockerfile: API/Dockerfile
+    networks:
+      webNetwork:
+        ipv4_address: 10.5.0.6
+    depends_on:
+     - db
+
+  db:
+    image: ${DOCKER_REGISTRY-}db
+    container_name: 'POSTGRES'
+    build:
+      context: .
+      dockerfile: API/DB/Postgres/Dockerfile
+    ports:
+      - "54320:5432"
+    networks:
+      webNetwork:
+        ipv4_address: 10.5.0.7
+#  nginx:
+#    image: ${DOCKER_REGISTRY-}nginx
+#    container_name: 'SERVER'
+#    build:
+#      context: .
+#      dockerfile: API\DB\Nginx\Dockerfile
+#    networks:
+#      webNetwork:
+#        ipv4_address: 10.5.0.8
+
+volumes:
+  database-data: # named volumes can be managed easier using docker-
+
+networks:
+  webNetwork:
+    driver: bridge
+    ipam:
+     config:
+       - subnet: 10.5.0.0/28

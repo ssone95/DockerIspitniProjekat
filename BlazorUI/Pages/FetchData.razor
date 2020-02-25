@@ -1,0 +1,87 @@
+﻿@page "/Products"
+
+@using BlazorUI.Data
+@inject BlazorUI.Helpers.ApiHelper api
+@inject WeatherForecastService ForecastService;
+
+
+    <div class="products">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+
+                    <div class="product_grid">
+
+
+                        @foreach (var product in products)
+                        {
+                            <div class="product">
+                                <div class="product_image"><img src="images/product_1.jpg" alt=""></div>
+                                <div class="product_extra product_new"><a href="categories.html">New</a></div>
+                                <div class="product_content">
+                                    <div class="product_title"><a href="/Product/@product.Id">@product.Name</a></div>
+                                    <div class="product_price">@product.CalculatedPrice</div>
+                                </div>
+                            </div>
+                        }
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+@code {
+    private List<Domain.Products.Product> products = new List<Domain.Products.Product>();
+
+    private int currentPage { get; set; } = 1;
+
+
+    private int itemsPerPage { get; set; } = 6;
+
+
+    protected override async Task OnInitializedAsync()
+    {
+        if(products.Count() < 1)
+            await GetProducts();
+    }
+
+    async Task GetProducts()
+    {
+        var response = await api.Post<List<Domain.Products.Product>>("api/Product/List", new Domain.DTO.ProductFilterDTO()
+        {
+            CurrentPage = currentPage,
+            ItemsPerPage = itemsPerPage
+        });
+
+        var data = response?.Result ?? new List<Domain.Products.Product>();
+
+        //List<Domain.Products.Product> data = new List<Domain.Products.Product>()
+        //{
+        //    new Domain.Products.Product() { Id = 1, Name = "ASD", Discount = 1 },
+        //    new Domain.Products.Product() { Id = 2, Name = "DSA", Discount = 1 },
+        //    new Domain.Products.Product() { Id = 3, Name = "SDF", Discount = 1 },
+        //};
+        products.AddRange(data);
+    }
+
+    async Task ItemsPerPageUpdated(ChangeEventArgs e)
+    {
+        int pageItems = 1;
+        currentPage = 1;
+        string pageItemsStr = e.Value as string;
+        Int32.TryParse(pageItemsStr ?? "1", out pageItems);
+        products.Clear();
+        itemsPerPage = pageItems;
+        await GetProducts();
+    }
+
+    async Task LoadMore()
+    {
+        currentPage++;
+        await GetProducts();
+    }
+}
