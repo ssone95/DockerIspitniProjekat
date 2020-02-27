@@ -13,6 +13,7 @@ using BlazorUI.Data;
 using BlazorUI.Helpers;
 using System.Net.Http;
 using Microsoft.AspNetCore.Server.HttpSys;
+using Blazored.LocalStorage;
 
 namespace BlazorUI
 {
@@ -32,6 +33,7 @@ namespace BlazorUI
             services.AddRazorPages();
             services.AddServerSideBlazor();
             services.AddSingleton<WeatherForecastService>();
+            services.AddBlazoredLocalStorage();
 
             services.AddHttpClient<ApiHelper>(client =>
             {
@@ -61,10 +63,13 @@ namespace BlazorUI
             }
 
             app.UseHttpsRedirection();
-            app.UseStaticFiles(new StaticFileOptions()
-            {
-                ServeUnknownFileTypes = true
-            });
+
+            app.UseStaticFiles();
+            //app.UseStaticFiles(new StaticFileOptions()
+            //{
+            //    RequestPath = "~/",
+            //    ServeUnknownFileTypes = true
+            //});
 
             app.UseRouting();
 

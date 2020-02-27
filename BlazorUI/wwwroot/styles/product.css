@@ -1,4 +1,4 @@
-@charset "utf-8";
+﻿@charset "utf-8";
 /* CSS Document */
 
 /******************************
@@ -253,6 +253,22 @@ section
 	-o-transition: all 200ms ease;
 	transition: all 200ms ease;
 }
+.button button
+{
+	display: block;
+	position: relative;
+	font-size: 16px;
+	font-weight: 600;
+	line-height: 57px;
+	color: #1b1b1b;
+	background: none;
+	z-index: 1;
+	-webkit-transition: all 200ms ease;
+	-moz-transition: all 200ms ease;
+	-ms-transition: all 200ms ease;
+	-o-transition: all 200ms ease;
+	transition: all 200ms ease;
+}
 .button::after
 {
 	content: '';
@@ -271,14 +287,13 @@ section
     -webkit-transition: -webkit-transform 0.3s, opacity 0.3s, background-color 0.3s;
     transition: transform 0.3s, opacity 0.3s, background-color 0.3s;
 }
-.button:hover::after
-{
-	opacity: 1;
-    -webkit-transform: rotate3d(0, 0, 1, 0deg);
-    transform: rotate3d(0, 0, 1, 0deg);
-    -webkit-transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
-    transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
-}
+	.button:hover::after {
+		opacity: 1;
+		-webkit-transform: rotate3d(0, 0, 1, 0deg);
+		transform: rotate3d(0, 0, 1, 0deg);
+		-webkit-transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+		transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
+	}
 .button_light
 {
 	border: solid 2px #FFFFFF;
@@ -289,6 +304,9 @@ section
 }
 .button:hover a
 {
+	color: #FFFFFF;
+}
+.button:hover button {
 	color: #FFFFFF;
 }
 .button_light:hover a
@@ -1463,4 +1481,32 @@ section
 .footer_social ul li a i:hover
 {
 	color: #FFFFFF;
+}
+
+
+button.quantity_inc {
+	background: transparent;
+	border: none;
+}
+button.quantity_dec {
+	background: transparent;
+	border: none;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+	-moz-appearance: textfield;
+}
+
+.button button {
+	border: none;
+	background: transparent;
+	width: 100%;
 }

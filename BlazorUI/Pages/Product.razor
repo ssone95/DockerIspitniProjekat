@@ -24,7 +24,10 @@
             <div class="col-lg-6">
                 <div class="details_content">
                     <div class="details_name">Smart Phone</div>
-                    <div class="details_discount">&euro;@CurrentProduct.Price.ToString("#,#00.00")</div>
+                    @if (CurrentProduct.CalculatedPrice != CurrentProduct.Price)
+                    {
+                        <div class="details_discount">&euro;@CurrentProduct.Price.ToString("#,#00.00")</div>
+                    }
                     <div class="details_price">&euro;@CurrentProduct.CalculatedPrice.ToString("#,#00.00")</div>
 
                     <!-- In Stock -->
@@ -40,24 +43,23 @@
                     <div class="product_quantity_container">
                         <div class="product_quantity clearfix">
                             <span>Qty</span>
-                            <input id="quantity_input" type="text" pattern="[0-9]*" value="1">
+                            <input type="number" id="quantity_input" pattern="[0-9]*" @bind-value="QuantityToAdd" />
                             <div class="quantity_buttons">
-                                <div id="quantity_inc_button" class="quantity_inc quantity_control"><i class="fa fa-chevron-up" aria-hidden="true"></i></div>
-                                <div id="quantity_dec_button" class="quantity_dec quantity_control"><i class="fa fa-chevron-down" aria-hidden="true"></i></div>
+                                <button id="quantity_inc_button" class="quantity_inc quantity_control" @onclick="AddQuant"><i class="fa fa-chevron-up" aria-hidden="true"></i></button>
+                                <button id="quantity_dec_button" class="quantity_dec quantity_control" @onclick="SubstractQuant"><i class="fa fa-chevron-down" aria-hidden="true"></i></button>
                             </div>
                         </div>
-                        <div class="button cart_button"><a href="#">Add to cart</a></div>
+                        <div class="button cart_button"><button href="#" @onclick="AddItemToCart" >Add to Cart</button></div>
                     </div>
 
-                    <!-- Share -->
-                    <div class="details_share">
+                    @*<div class="details_share">
                         <span>Share:</span>
                         <ul>
-                            <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                            <li><a href=""><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                            <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://localhost:6001/Product/@CurrentProduct.Id"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
                             <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
                         </ul>
-                    </div>
+                    </div>*@
                 </div>
             </div>
         </div>
@@ -75,11 +77,17 @@
     </div>
 </div>
 @using BlazorUI.Data
-@inject BlazorUI.Helpers.ApiHelper api
+@inject BlazorUI.Helpers.ApiHelper api;
+
+@inject Blazored.LocalStorage.ILocalStorageService localStorageService;
+
+@using BlazorUI.Helpers;
 
 @code {
     [Parameter]
     public int Id { get; set; }
+
+    public int QuantityToAdd { get; set; } = 1;
 
     private Domain.Products.Product CurrentProduct = new Domain.Products.Product();
 
@@ -87,6 +95,28 @@
     {
         if (CurrentProduct.Id < 1)
             await GetProduct();
+    }
+
+    async Task AddQuant() {
+        if(QuantityToAdd < 99)
+            QuantityToAdd++;
+    }
+
+    async Task SubstractQuant() {
+        if(QuantityToAdd > 1)
+            QuantityToAdd--;
+    }
+
+    async Task AddItemToCart()
+    {
+        var cart = await localStorageService.GetLocalStorageItem<Domain.DTO.ShoppingCartDTO>("ShoppingCart");
+
+        if (cart == null)
+            cart = new Domain.DTO.ShoppingCartDTO();
+
+        cart.InsertIntoCart(CurrentProduct, QuantityToAdd);
+
+        await localStorageService.SetLocalStorageItem("ShoppingCart", cart);
     }
 
     async Task GetProduct()

@@ -1,0 +1,242 @@
+﻿@page "/Cart"
+<link rel="stylesheet" type="text/css" href="styles/cart.css">
+<link rel="stylesheet" type="text/css" href="styles/cart_responsive.css">
+
+<div class="home">
+    <div class="home_container">
+        <div class="home_background" style="background-image:url(images/cart.jpg)"></div>
+        <div class="home_content_container">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="home_content">
+                            <div class="breadcrumbs">
+                                <ul>
+                                    <li><a href="">Home</a></li>
+                                    <li><a href="/Cart">Shopping Cart</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="cart_info">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <!-- Column Titles -->
+                <div class="cart_info_columns clearfix">
+                    <div class="cart_info_col cart_info_col_product">Product</div>
+                    <div class="cart_info_col cart_info_col_price">Price</div>
+                    <div class="cart_info_col cart_info_col_quantity">Quantity</div>
+                    <div class="cart_info_col cart_info_col_total">Total</div>
+                </div>
+            </div>
+        </div>
+        <div class="row cart_items_row">
+            <div class="col">
+
+                <!-- Cart Item -->
+                @foreach (var product in CurrentShoppingCart.ShoppingCartItems)
+                {
+                    <div class="cart_item d-flex flex-lg-row flex-column align-items-lg-center align-items-start justify-content-start">
+                        <!-- Name -->
+                        <div class="cart_item_product d-flex flex-row align-items-center justify-content-start">
+                            <div class="cart_item_image">
+                                <div><img src="images/cart_1.jpg" alt=""></div>
+                            </div>
+                            <div class="cart_item_name_container">
+                                <div class="cart_item_name"><a href="#">@product.Product.Name</a></div>
+                            </div>
+                        </div>
+                        <!-- Price -->
+                        <div class="cart_item_price">&euro;@(product.Product.CalculatedPrice)</div>
+                        <!-- Quantity -->
+                        <div class="cart_item_quantity">
+                            <div class="product_quantity_container">
+                                <div class="product_quantity clearfix">
+                                    <span>Qty</span>
+                                    <input id="quantity_input" type="text" pattern="[0-9]*" @bind-value="product.Quantity">
+                                    <div class="quantity_buttons">
+                                        <button id="quantity_inc_button" class="quantity_inc quantity_control" @onclick="@(() => AddQuantity(product))"><i class="fa fa-chevron-up" aria-hidden="true"></i></button>
+                                        <button id="quantity_dec_button" class="quantity_dec quantity_control" @onclick="@(() => SubstractQuantity(product))"><i class="fa fa-chevron-down" aria-hidden="true"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Total -->
+                        <div class="cart_item_total">&euro;@(product.Product.CalculatedPrice * product.Quantity)</div>
+                    </div>
+                }
+
+            </div>
+        </div>
+        <div class="row row_cart_buttons">
+            <div class="col">
+                <div class="cart_buttons d-flex flex-lg-row flex-column align-items-start justify-content-start">
+                    <div class="button continue_shopping_button"><a href="/">Continue shopping</a></div>
+                    <div class="cart_buttons_right ml-lg-auto">
+                        <div class="button clear_cart_button"><button @onclick="ClearCart">Clear cart</button></div>
+                        <div class="button update_cart_button"><button @onclick="UpdateCart">Update cart</button></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row row_extra">
+            <div class="col-lg-4">
+
+                <!-- Delivery -->
+                <div class="delivery">
+                    <div class="section_title">Shipping method</div>
+                    <div class="section_subtitle">Select the one you want</div>
+                    <div class="delivery_options">
+                        <label class="delivery_option clearfix">
+                            Next day delivery
+                            <input type="radio" name="radio" @onchange="@(() => DeliveryPrice(4.99m))" 
+                                   checked="@(ShippingEquals(4.99m))">
+                            <span class="checkmark"></span>
+                            <span class="delivery_price">&euro;4.99</span>
+                        </label>
+                        <label class="delivery_option clearfix">
+                            Standard delivery
+                            <input type="radio" name="radio" @onchange="@(() => DeliveryPrice(1.99m))" 
+                                   checked="@(ShippingEquals(1.99m))">
+                            <span class="checkmark"></span>
+                            <span class="delivery_price">&euro;1.99</span>
+                        </label>
+                        <label class="delivery_option clearfix">
+                            Personal pickup
+                            <input type="radio" name="radio" @onchange="@(() => DeliveryPrice(0))" 
+                                   checked="@(ShippingEquals(0))">
+                            <span class="checkmark"></span>
+                            <span class="delivery_price">Free</span>
+                        </label>
+                    </div>
+                </div>
+
+                <!-- Coupon Code -->
+                <div class="coupon">
+                    <div class="section_title">Coupon code</div>
+                    <div class="section_subtitle">Enter your coupon code</div>
+                    <div class="coupon_form_container">
+                        <form action="#" id="coupon_form" class="coupon_form">
+                            <input type="text" class="coupon_input" required="required" @bind-value="CouponFieldValue">
+                            <button class="button coupon_button" @onclick="ApplyCoupon"><span>Apply</span></button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 offset-lg-2">
+                <div class="cart_total">
+                    <div class="section_title">Cart total</div>
+                    <div class="section_subtitle">Final info</div>
+                    <div class="cart_total_container">
+                        <ul>
+                            <li class="d-flex flex-row align-items-center justify-content-start">
+                                <div class="cart_total_title">Subtotal</div>
+                                <div class="cart_total_value ml-auto">&euro;@CurrentShoppingCart.TotalValue</div>
+                            </li>
+                            <li class="d-flex flex-row align-items-center justify-content-start">
+                                <div class="cart_total_title">Shipping</div>
+                                <div class="cart_total_value ml-auto">&euro;@CurrentShoppingCart.ShippingValue</div>
+                            </li>
+                            <li class="d-flex flex-row align-items-center justify-content-start">
+                                <div class="cart_total_title">Total</div>
+                                <div class="cart_total_value ml-auto">&euro;@CurrentShoppingCart.TotalValue</div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="button checkout_button"><a href="/Cart/Checkout">Proceed to checkout</a></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@using BlazorUI.Data
+@inject BlazorUI.Helpers.ApiHelper api;
+
+@inject Blazored.LocalStorage.ILocalStorageService localStorageService;
+
+@using BlazorUI.Helpers;
+
+
+@code {
+
+    Domain.DTO.ShoppingCartDTO CurrentShoppingCart = new Domain.DTO.ShoppingCartDTO();
+
+    decimal TotalPrice => CurrentShoppingCart.ShoppingCartItems.Sum(x => x.Quantity * x.Product.CalculatedPrice);
+
+    string CouponFieldValue { get; set; }
+
+    decimal CouponDiscountValue { get; set; } = 0;
+
+    bool ShippingEquals(decimal d1) => d1 == CurrentShoppingCart.ShippingValue;
+
+    Dictionary<string, decimal> ValidCouponCodes = new Dictionary<string, decimal>()
+    {
+        { "OK", 1 },
+        {"POPUST", 5},
+        {"1", 1},
+        {"DISCOUNT", 10}
+    };
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if(firstRender)
+        {
+            var cart = await localStorageService.GetLocalStorageItem<Domain.DTO.ShoppingCartDTO>("ShoppingCart");
+
+            CurrentShoppingCart = cart;
+
+            StateHasChanged();
+        }
+    }
+
+    async Task ClearCart()
+    {
+        CurrentShoppingCart.ShoppingCartItems.Clear();
+
+        await localStorageService.SetLocalStorageItem("ShoppingCart", CurrentShoppingCart);
+    }
+
+    async Task ApplyCoupon()
+    {
+        var keyFound = ValidCouponCodes.Keys.Where(x => x.ToLower() == CouponFieldValue.ToLower()).FirstOrDefault();
+        if (!String.IsNullOrEmpty(keyFound))
+        {
+            decimal value = ValidCouponCodes[keyFound];
+            CurrentShoppingCart.DiscountValue = value;
+            await UpdateCart();
+        }
+    }
+
+    async Task DeliveryPrice(decimal priceOfDelivery)
+    {
+        CurrentShoppingCart.ShippingValue = priceOfDelivery;
+        await UpdateCart();
+    }
+
+    async Task UpdateCart()
+    {
+        await localStorageService.SetLocalStorageItem("ShoppingCart", CurrentShoppingCart);
+    }
+
+    async Task AddQuantity(Domain.DTO.ShoppingCartItemDTO item)
+    {
+        if (item.Quantity < 99)
+            item.Quantity++;
+    }
+
+    async Task SubstractQuantity(Domain.DTO.ShoppingCartItemDTO item)
+    {
+        if (item.Quantity > 1)
+            item.Quantity--;
+    }
+
+}

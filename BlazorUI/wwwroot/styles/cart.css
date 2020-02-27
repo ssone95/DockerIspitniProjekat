@@ -1,4 +1,4 @@
-@charset "utf-8";
+﻿@charset "utf-8";
 /* CSS Document */
 
 /******************************
@@ -997,7 +997,7 @@ section
 }
 .product_quantity_container
 {
-	
+	margin-top: 0;
 }
 .product_quantity
 {
@@ -1037,6 +1037,7 @@ section
 	padding-left: 9px;
 	line-height: 39px;
 	float: left;
+	margin-top: 1px;
 }
 .quantity_buttons
 {
@@ -1363,4 +1364,32 @@ label
 .footer_social ul li a i:hover
 {
 	color: #FFFFFF;
+}
+
+button.quantity_inc {
+	background: transparent;
+	border: none;
+}
+
+button.quantity_dec {
+	background: transparent;
+	border: none;
+}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+	-moz-appearance: textfield;
+}
+
+.button button {
+	border: none;
+	background: transparent;
+	width: 100%;
 }

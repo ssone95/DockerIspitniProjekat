@@ -23,6 +23,11 @@ services:
       ASPNETCORE_URLS: "https://0.0.0.0:443;http://0.0.0.0:80"
       ASPNETCORE_HTTPS_PORT: "5006"
       API_BASE_URL: "https://host.docker.internal:5002"
+      EMAIL_FROM: "seminarski.docker@gmail.com"
+      EMAIL_FROM_ACCOUNT: "seminarski.docker"
+      EMAIL_FROM_ACCOUNT_PASSWORD: "Secret123c"
+      EMAIL_SMTP_ADDRESS: "smtp.googlemail.com"
+      EMAIL_SMTP_PORT: 587
     ports:
       - "5005:80"
       - "5006:443"

@@ -37,5 +37,10 @@ namespace Domain.Products
         
         public virtual List<Product_ProductType> Product_ProductTypes { get; set; }
 
+
+        public override bool Equals(object obj) =>
+            (obj is Product prod)
+            ? prod.Id == Id
+            : false;
     }
 }
