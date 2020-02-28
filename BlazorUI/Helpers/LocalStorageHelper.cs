@@ -28,7 +28,15 @@ namespace BlazorUI.Helpers
             var contains = await localStorage.ContainKeyAsync(key);
             if (contains)
             {
-                return await localStorage.GetItemAsync<T>(key);
+                try
+                {
+                    var ls = await localStorage.GetItemAsync<T>(key);
+
+                    return ls ?? default(T);
+                } catch(Exception ex)
+                {
+                    return default(T);
+                }
             }
 
             return default(T);

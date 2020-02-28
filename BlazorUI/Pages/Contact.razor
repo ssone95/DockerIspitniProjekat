@@ -1,0 +1,142 @@
+﻿@page "/Contact"
+<link rel="stylesheet" type="text/css" href="styles/contact.css">
+<link rel="stylesheet" type="text/css" href="styles/contact_responsive.css">
+
+<div class="home">
+    <div class="home_container">
+        <div class="home_background" style="background-image:url(images/contact.jpg)"></div>
+        <div class="home_content_container">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="home_content">
+                            <div class="breadcrumbs">
+                                <ul>
+                                    <li><a href="/">Home</a></li>
+                                    <li><a href="/Contact">Contact</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Contact -->
+
+<div class="contact">
+    <div class="container">
+        <div class="row">
+
+            <!-- Get in touch -->
+            <div class="col-lg-8 contact_col">
+                <div class="get_in_touch">
+                    <div class="section_title">Get in Touch</div>
+                    <div class="section_subtitle">Say hello</div>
+                    <div class="contact_form_container">
+                        <div id="contact_form" class="contact_form">
+                            <div class="row">
+                                <div class="col-xl-6">
+                                    <!-- Name -->
+                                    <label for="contact_name">First Name*</label>
+                                    <input type="text" id="contact_name" class="contact_input" required="required" @bind-value="FirstName">
+                                </div>
+                                <div class="col-xl-6 last_name_col">
+                                    <!-- Last Name -->
+                                    <label for="contact_last_name">Last Name*</label>
+                                    <input type="text" id="contact_last_name" class="contact_input" required="required" @bind-value="LastName">
+                                </div>
+                            </div>
+                            <div>
+                                <!-- Email -->
+                                <label for="contact_email">Email*</label>
+                                <input type="email" id="contact_email" class="contact_input" required @bind-value="Email">
+                            </div>
+                            <div>
+                                <!-- Subject -->
+                                <label for="contact_company">Subject*</label>
+                                <input type="text" id="contact_company" class="contact_input" required @bind-value="Subject">
+                            </div>
+                            <div>
+                                <label for="contact_textarea">Message*</label>
+                                <input type="text" id="contact_textarea" class="contact_input contact_textarea" required @bind-value="Message" />
+                            </div>
+                            <button class="button contact_button" @onclick="SubmitForm"><span>Send Message</span></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Contact Info -->
+            <div class="col-lg-3 offset-xl-1 contact_col">
+                <div class="contact_info">
+                    <div class="contact_info_section">
+                        <div class="contact_info_title">Marketing</div>
+                        <ul>
+                            <li>Phone: <span>+381 60 123 45 67</span></li>
+                            <li>Email: <span>docker.seminarski@gmail.com</span></li>
+                        </ul>
+                    </div>
+                    <div class="contact_info_section">
+                        <div class="contact_info_title">Shipping & Returns</div>
+                        <ul>
+                            <li>Phone: <span>+381 60 123 45 67</span></li>
+                            <li>Email: <span>docker.seminarski@gmail.com</span></li>
+                        </ul>
+                    </div>
+                    <div class="contact_info_section">
+                        <div class="contact_info_title">Information</div>
+                        <ul>
+                            <li>Phone: <span>+381 60 123 45 67</span></li>
+                            <li>Email: <span>docker.seminarski@gmail.com</span></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@using BlazorUI.Data
+@inject BlazorUI.Helpers.ApiHelper api;
+
+@inject Blazored.LocalStorage.ILocalStorageService localStorageService;
+@inject NavigationManager NavigationManager;
+@inject IJSRuntime JSRuntime;
+
+@using BlazorUI.Helpers;
+
+
+@code {
+    string FirstName { get; set; }
+    string LastName { get; set; }
+    string Email{ get; set; }
+    string Subject { get; set; }
+    string Message { get; set; }
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+
+    }
+
+    async Task SubmitForm()
+    {
+        if(String.IsNullOrEmpty(FirstName) || String.IsNullOrEmpty(LastName) || String.IsNullOrEmpty(Email)
+            || String.IsNullOrEmpty(Subject) || String.IsNullOrEmpty(Message))
+        {
+            await JSRuntime.InvokeAsync<object>("alert", "Please fill in the required fields!");
+            return;
+        }
+
+        BlazorUI.Helpers.MailHelper.SendMail(FirstName, LastName, Email, Subject, Message);
+        await JSRuntime.InvokeAsync<object>("alert", "Thank you for contacting us!");
+        NavigationManager.NavigateTo("/", true);
+    }
+
+}
+
+

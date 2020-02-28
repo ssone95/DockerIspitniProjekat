@@ -42,5 +42,8 @@ namespace Domain.Products
             (obj is Product prod)
             ? prod.Id == Id
             : false;
+
+
+        public virtual List<ProductPhoto> ProductPhotos { get; set; }
     }
 }

@@ -3,6 +3,24 @@
 <link rel="stylesheet" type="text/css" href="/styles/product.css">
 <link rel="stylesheet" type="text/css" href="/styles/product_responsive.css">
 
+<div class="home">
+    <div class="home_container">
+        <div class="home_background" style="background-image:url(images/categories.jpg)"></div>
+        <div class="home_content_container">
+            <div class="container">
+                <div class="row">
+                    <div class="col">
+                        <div class="home_content">
+                            <div class="home_title">Smart Phones<span>.</span></div>
+                            <div class="home_text"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam a ultricies metus. Sed nec molestie eros. Sed viverra velit venenatis fermentum luctus.</p></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <div class="product_details">
     <div class="container">
         <div class="row details_row">
@@ -10,12 +28,11 @@
             <!-- Product Image -->
             <div class="col-lg-6">
                 <div class="details_image">
-                    <div class="details_image_large"><img src="images/details_1.jpg" alt=""><div class="product_extra product_new"><a href="categories.html">New</a></div></div>
+                    <div class="details_image_large"><img src="@(CurrentProduct?.ProductPhotos[0]?.PhotoPath ?? "images/details_1.jpg")" alt=""><div class="product_extra product_new"><a href="javascript:void(0);">New</a></div></div>
                     <div class="details_image_thumbnails d-flex flex-row align-items-start justify-content-between">
-                        <div class="details_image_thumbnail active" data-image="images/details_1.jpg"><img src="images/details_1.jpg" alt=""></div>
-                        <div class="details_image_thumbnail" data-image="images/details_2.jpg"><img src="images/details_2.jpg" alt=""></div>
-                        <div class="details_image_thumbnail" data-image="images/details_3.jpg"><img src="images/details_3.jpg" alt=""></div>
-                        <div class="details_image_thumbnail" data-image="images/details_4.jpg"><img src="images/details_4.jpg" alt=""></div>
+                        <div class="details_image_thumbnail active" data-image="@(CurrentProduct?.ProductPhotos[0]?.PhotoPath ?? "images/details_1.jpg")">
+                            <img src="@(CurrentProduct?.ProductPhotos[0]?.PhotoPath ?? "images/details_1.jpg")" alt="">
+                        </div>
                     </div>
                 </div>
             </div>
@@ -23,20 +40,17 @@
             <!-- Product Content -->
             <div class="col-lg-6">
                 <div class="details_content">
-                    <div class="details_name">Smart Phone</div>
-                    @if (CurrentProduct.CalculatedPrice != CurrentProduct.Price)
+                    <div class="details_name">@CurrentProduct?.Name</div>
+                    @if (CurrentProduct != null && CurrentProduct.CalculatedPrice != CurrentProduct.Price)
                     {
-                        <div class="details_discount">&euro;@CurrentProduct.Price.ToString("#,#00.00")</div>
+                        <div class="details_discount">&euro;@CurrentProduct?.Price.ToString("#,#00.00")</div>
                     }
-                    <div class="details_price">&euro;@CurrentProduct.CalculatedPrice.ToString("#,#00.00")</div>
+                    <div class="details_price">&euro;@CurrentProduct?.CalculatedPrice.ToString("#,#00.00")</div>
 
                     <!-- In Stock -->
                     <div class="in_stock_container">
                         <div class="availability">Availability:</div>
                         <span>In Stock</span>
-                    </div>
-                    <div class="details_text">
-                        <p>@CurrentProduct.Description</p>
                     </div>
 
                     <!-- Product Quantity -->
@@ -49,17 +63,9 @@
                                 <button id="quantity_dec_button" class="quantity_dec quantity_control" @onclick="SubstractQuant"><i class="fa fa-chevron-down" aria-hidden="true"></i></button>
                             </div>
                         </div>
-                        <div class="button cart_button"><button href="#" @onclick="AddItemToCart" >Add to Cart</button></div>
+                        <div class="button cart_button"><button href="#" @onclick="AddItemToCart">Add to Cart</button></div>
                     </div>
 
-                    @*<div class="details_share">
-                        <span>Share:</span>
-                        <ul>
-                            <li><a href=""><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                            <li><a href="https://www.facebook.com/sharer/sharer.php?u=https://localhost:6001/Product/@CurrentProduct.Id"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                        </ul>
-                    </div>*@
                 </div>
             </div>
         </div>
@@ -70,7 +76,7 @@
                     <div class="description_title">Description</div>
                 </div>
                 <div class="description_text">
-                    <p>@CurrentProduct.Description</p>
+                    <p>@((MarkupString)(CurrentProduct?.Description ?? ""))</p>
                 </div>
             </div>
         </div>
@@ -80,6 +86,7 @@
 @inject BlazorUI.Helpers.ApiHelper api;
 
 @inject Blazored.LocalStorage.ILocalStorageService localStorageService;
+@inject IJSRuntime JSRuntime;
 
 @using BlazorUI.Helpers;
 
@@ -89,7 +96,13 @@
 
     public int QuantityToAdd { get; set; } = 1;
 
-    private Domain.Products.Product CurrentProduct = new Domain.Products.Product();
+    private Domain.Products.Product CurrentProduct = new Domain.Products.Product()
+    {
+        ProductPhotos = new List<Domain.Products.ProductPhoto>()
+    {
+            new Domain.Products.ProductPhoto() { PhotoPath = "images/details_1.jpg" }
+        }
+    };
 
     protected override async Task OnInitializedAsync()
     {
@@ -97,13 +110,15 @@
             await GetProduct();
     }
 
-    async Task AddQuant() {
-        if(QuantityToAdd < 99)
+    async Task AddQuant()
+    {
+        if (QuantityToAdd < 99)
             QuantityToAdd++;
     }
 
-    async Task SubstractQuant() {
-        if(QuantityToAdd > 1)
+    async Task SubstractQuant()
+    {
+        if (QuantityToAdd > 1)
             QuantityToAdd--;
     }
 
@@ -114,7 +129,18 @@
         if (cart == null)
             cart = new Domain.DTO.ShoppingCartDTO();
 
-        cart.InsertIntoCart(CurrentProduct, QuantityToAdd);
+        var productToStore = new Domain.Products.Product()
+        {
+            Id = CurrentProduct.Id,
+            Identifier = CurrentProduct.Identifier,
+            ProductPhotos = CurrentProduct.ProductPhotos,
+            Discount = CurrentProduct.Discount,
+            Name = CurrentProduct.Name,
+            Price = CurrentProduct.Price
+        };
+
+        cart.InsertIntoCart(productToStore, QuantityToAdd);
+        await JSRuntime.InvokeAsync<object>("alert", "Product was added to your Cart!");
 
         await localStorageService.SetLocalStorageItem("ShoppingCart", cart);
     }
@@ -122,7 +148,13 @@
     async Task GetProduct()
     {
         var response = await api.Get<Domain.Products.Product>("api/Product/" + Id);
-        CurrentProduct = response?.Result ?? new Domain.Products.Product();
-        this.StateHasChanged();
+        CurrentProduct = response?.Result ?? new Domain.Products.Product()
+        {
+            ProductPhotos = new List<Domain.Products.ProductPhoto>()
+        {
+                new Domain.Products.ProductPhoto() { PhotoPath = "images/details_1.jpg" }
+            },
+        };
+        await InvokeAsync(() => this?.StateHasChanged());
     }
 }

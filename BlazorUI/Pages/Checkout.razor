@@ -99,7 +99,7 @@
                                     <label for="checkbox_terms"><img src="images/check.png" alt=""></label>
                                     <span class="checkbox_title">Terms and conditions</span>
                                 </div>
-                            
+
                             </div>
                         </form>
                     </div>
@@ -172,23 +172,28 @@
 @inject BlazorUI.Helpers.ApiHelper api;
 
 @inject Blazored.LocalStorage.ILocalStorageService localStorageService;
+@inject NavigationManager NavigationManager;
+@inject IJSRuntime JSRuntime;
 
 @using BlazorUI.Helpers;
 
 
 @code {
 
-        Domain.DTO.ShoppingCartDTO CurrentShoppingCart = new Domain.DTO.ShoppingCartDTO();
-        Domain.DTO.OrderFormDTO orderForm = new Domain.DTO.OrderFormDTO()
-        {
-            Country = "Serbia"
-        };
+    Domain.DTO.ShoppingCartDTO CurrentShoppingCart = new Domain.DTO.ShoppingCartDTO();
+    Domain.DTO.OrderFormDTO orderForm = new Domain.DTO.OrderFormDTO()
+    {
+        Country = "Serbia"
+    };
 
-        decimal TotalPrice => CurrentShoppingCart.ShoppingCartItems.Sum(x => x.Quantity * x.Product.CalculatedPrice);
+    decimal TotalPrice => CurrentShoppingCart.ShoppingCartItems.Sum(x => x.Quantity * x.Product.CalculatedPrice);
 
-        string CouponFieldValue { get; set; }
+    string CouponFieldValue { get; set; }
 
-        decimal CouponDiscountValue { get; set; } = 0;
+    decimal CouponDiscountValue { get; set; } = 0;
+
+    string ErrorContent = "";
+    string SuccessContent = "";
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
@@ -204,8 +209,18 @@
 
     async Task SubmitOrder()
     {
+        if (String.IsNullOrEmpty(orderForm.EmailAddress) || String.IsNullOrEmpty(orderForm.FirstName) || String.IsNullOrEmpty(orderForm.LastName) || String.IsNullOrEmpty(orderForm.Address) || String.IsNullOrEmpty(orderForm.PhoneNo))
+        {
+            await JSRuntime.InvokeAsync<object>("alert", "Please fill all of the required fields to proceed!");
+            return;
+        }
         orderForm.ShoppingCart = CurrentShoppingCart;
         BlazorUI.Helpers.MailHelper.SendMail(orderForm);
+
+        await localStorageService.RemoveLocalStorageItem("ShoppingCart");
+        await JSRuntime.InvokeAsync<object>("alert", "Thank you for placing your order, please check your e-mail!");
+        NavigationManager.NavigateTo("/", true);
+
     }
 
 }

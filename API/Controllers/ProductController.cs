@@ -23,7 +23,6 @@ namespace API.Controllers
         }
 
         [HttpGet("{id}")]
-        //public async Task<JsonResult> GetProductTypes(bool? mainTypes = null, int? parentId = null, string filterString = null)
         public async Task<JsonResult> GetProduct(int Id)
         {
             BaseResponse<Product> response = new BaseResponse<Product>();
@@ -42,9 +41,7 @@ namespace API.Controllers
             return res;
         }
 
-        //[HttpGet("List/{mainTypes}/{parentId}/{filterString}")]
         [HttpPost("List")]
-        //public async Task<JsonResult> GetProductTypes(bool? mainTypes = null, int? parentId = null, string filterString = null)
         public async Task<JsonResult> GetProducts([FromBody]ProductFilterDTO filter)
         {
             BaseResponse<List<Product>> response = new BaseResponse<List<Product>>();

@@ -23,6 +23,7 @@ namespace Domain.DTO
 
     public enum SortingFields : int
     {
+        None,
         PriceAscending = 1,
         PriceDescending,
     }

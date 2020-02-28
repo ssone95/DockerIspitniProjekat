@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 using Repository.Context;
@@ -9,9 +10,10 @@ using Repository.Context;
 namespace Repository.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200228000401_CeneISlusaliceSeed")]
+    partial class CeneISlusaliceSeed
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -62,7 +64,7 @@ namespace Repository.Migrations
                         {
                             Id = 1,
                             Active = true,
-                            CreatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 318, DateTimeKind.Local).AddTicks(4042),
+                            CreatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 278, DateTimeKind.Local).AddTicks(9033),
                             Description = @"
                         <table border=0 cellpadding=0 cellspacing=0 width=641 style='border-collapse:
                              collapse;width:481pt;box-sizing: border-box;border-image: initial;font-variant-ligatures: normal;
@@ -720,17 +722,17 @@ namespace Repository.Migrations
                             <!--EndFragment-->
                             </table>",
                             Discount = 0,
-                            Identifier = new Guid("000c73c3-df91-4cfc-813d-1c9b43deb46b"),
+                            Identifier = new Guid("8a4b4f7c-5d42-4306-a540-ac5ebe7d987b"),
                             Name = "Huawei P30 Lite Dual SIM 128GB 4GB RAM",
                             Price = 500m,
                             Tags = "Phones;Huawei;P30;Lite;",
-                            UpdatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 318, DateTimeKind.Local).AddTicks(4046)
+                            UpdatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 278, DateTimeKind.Local).AddTicks(9037)
                         },
                         new
                         {
                             Id = 2,
                             Active = true,
-                            CreatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(765),
+                            CreatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 279, DateTimeKind.Local).AddTicks(5372),
                             Description = @"
                         
                                 <table border=0 cellpadding=0 cellspacing=0 width=800 style='border-collapse:
@@ -1345,17 +1347,17 @@ namespace Repository.Migrations
                                 <!--EndFragment-->
                                 </table>",
                             Discount = 0,
-                            Identifier = new Guid("cd758942-9cf7-4c45-a2ae-815188e82613"),
+                            Identifier = new Guid("c9896c33-e751-4902-af13-cb8fdc698b66"),
                             Name = "Huawei P20 Dual SIM 64GB 4GB RAM",
                             Price = 309m,
                             Tags = "Phones;Huawei;P20;Dual-Sim;",
-                            UpdatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(769)
+                            UpdatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 279, DateTimeKind.Local).AddTicks(5375)
                         },
                         new
                         {
                             Id = 3,
                             Active = true,
-                            CreatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(1054),
+                            CreatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 279, DateTimeKind.Local).AddTicks(5564),
                             Description = @"
                                 <table border=0 cellpadding=0 cellspacing=0 width=799 style='border-collapse:
                                  collapse;width:600pt;box-sizing: border-box;border-image: initial;font-variant-ligatures: normal;
@@ -2007,17 +2009,17 @@ namespace Repository.Migrations
                                 <!--EndFragment-->
                                 </table>",
                             Discount = 0,
-                            Identifier = new Guid("b20116d6-f41b-4bf8-bacc-ee32ed898dab"),
+                            Identifier = new Guid("e1c59e72-f358-4085-8756-72ac4f67cec8"),
                             Name = "LG V50 ThinQ 5G 128GB 6GB RAM",
                             Price = 825m,
                             Tags = "Phones;LG;V50;ThinQ;",
-                            UpdatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(1058)
+                            UpdatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 279, DateTimeKind.Local).AddTicks(5567)
                         },
                         new
                         {
                             Id = 4,
                             Active = true,
-                            CreatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(1145),
+                            CreatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 279, DateTimeKind.Local).AddTicks(5756),
                             Description = @"
                             <table border=0 cellpadding=0 cellspacing=0 width=786 style='border-collapse:
                              collapse;width:590pt;box-sizing: border-box;border-image: initial;font-variant-ligatures: normal;
@@ -2668,17 +2670,17 @@ namespace Repository.Migrations
                             <!--EndFragment-->
                             </table>",
                             Discount = 0,
-                            Identifier = new Guid("83305091-814a-4cf7-868b-ba2347350297"),
+                            Identifier = new Guid("011120a0-3bfb-484d-80b4-8a44f235e7ee"),
                             Name = "LG V40 ThinQ Dual SIM 128GB 6GB RAM",
                             Price = 425m,
                             Tags = "Phones;LG;V40;ThinQ;",
-                            UpdatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(1149)
+                            UpdatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 279, DateTimeKind.Local).AddTicks(5759)
                         },
                         new
                         {
                             Id = 5,
                             Active = true,
-                            CreatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(1234),
+                            CreatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 279, DateTimeKind.Local).AddTicks(5828),
                             Description = @"
                             <table border=0 cellpadding=0 cellspacing=0 width=639 style='border-collapse:
                              collapse;width:480pt;box-sizing: border-box;border-image: initial;font-variant-ligatures: normal;
@@ -3398,17 +3400,17 @@ namespace Repository.Migrations
                             <!--EndFragment-->
                             </table>",
                             Discount = 0,
-                            Identifier = new Guid("ffdd4fb3-12aa-43f6-ae46-803fd4f923d5"),
+                            Identifier = new Guid("5bb54b3a-a9ca-4ece-908e-3f913e215313"),
                             Name = "Nokia 7.2 Dual SIM 128GB 6GB RAM",
                             Price = 319m,
                             Tags = "Phones;Nokia;7.2;Dual-Sim;",
-                            UpdatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(1238)
+                            UpdatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 279, DateTimeKind.Local).AddTicks(5831)
                         },
                         new
                         {
                             Id = 6,
                             Active = true,
-                            CreatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(1330),
+                            CreatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 279, DateTimeKind.Local).AddTicks(5905),
                             Description = @"
                             <table border=0 cellpadding=0 cellspacing=0 width=639 style='border-collapse:
                              collapse;width:480pt;box-sizing: border-box;border-image: initial;font-variant-ligatures: normal;
@@ -4038,17 +4040,17 @@ namespace Repository.Migrations
                             <!--EndFragment-->
                             </table>",
                             Discount = 0,
-                            Identifier = new Guid("6a7f1dc4-0c3d-4fde-938f-a714b13deae2"),
+                            Identifier = new Guid("3c81ce24-2dc5-4b65-bf7d-7a543c606eac"),
                             Name = "Nokia 6.2 Dual SIM 128GB 4GB RAM",
                             Price = 255m,
                             Tags = "Phones;Nokia;6.2;Dual-Sim;",
-                            UpdatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(1334)
+                            UpdatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 279, DateTimeKind.Local).AddTicks(5908)
                         },
                         new
                         {
                             Id = 7,
                             Active = true,
-                            CreatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(1418),
+                            CreatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 279, DateTimeKind.Local).AddTicks(5974),
                             Description = @"
                             <table border=0 cellpadding=0 cellspacing=0 width=738 style='border-collapse:
                              collapse;width:554pt;box-sizing: border-box;border-image: initial;font-variant-ligatures: normal;
@@ -4756,17 +4758,17 @@ namespace Repository.Migrations
                             <!--EndFragment-->
                             </table>",
                             Discount = 0,
-                            Identifier = new Guid("6ab3ade7-2695-4b44-b6c3-59c50dec0746"),
+                            Identifier = new Guid("fa5266f7-0379-4ba9-81ec-a335ae8ca0a7"),
                             Name = "Apple iPhone 11 Dual eSIM 64GB 4GB",
                             Price = 735m,
                             Tags = "Phones;Apple;iPhone;11;XI;Dual-Sim;",
-                            UpdatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(1421)
+                            UpdatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 279, DateTimeKind.Local).AddTicks(5977)
                         },
                         new
                         {
                             Id = 8,
                             Active = true,
-                            CreatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(1621),
+                            CreatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 279, DateTimeKind.Local).AddTicks(6058),
                             Description = @"
                         <table border=0 cellpadding=0 cellspacing=0 width=666 style='border-collapse:
                          collapse;width:501pt;box-sizing: border-box;border-image: initial;font-variant-ligatures: normal;
@@ -5458,17 +5460,17 @@ namespace Repository.Migrations
                         <!--EndFragment-->
                         </table>",
                             Discount = 0,
-                            Identifier = new Guid("f441c16b-aae6-4577-ac69-2aa59d61051d"),
+                            Identifier = new Guid("5811e1a5-5e17-4fa4-8a7c-1e1f049c0add"),
                             Name = "Apple iPhone X 64GB",
                             Price = 425m,
                             Tags = "Phones;Apple;iPhone;10;X;",
-                            UpdatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(1625)
+                            UpdatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 279, DateTimeKind.Local).AddTicks(6061)
                         },
                         new
                         {
                             Id = 9,
                             Active = true,
-                            CreatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(1713),
+                            CreatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 279, DateTimeKind.Local).AddTicks(6129),
                             Description = @"
                         <table border=0 cellpadding=0 cellspacing=0 width=687 style='border-collapse:
                          collapse;width:516pt;box-sizing: border-box;border-image: initial;font-variant-ligatures: normal;
@@ -6071,17 +6073,17 @@ namespace Repository.Migrations
                         <!--EndFragment-->
                         </table>",
                             Discount = 0,
-                            Identifier = new Guid("6d6ce69b-1564-4be1-b68b-8ae3a3fd5fd0"),
+                            Identifier = new Guid("0b71523e-0428-4492-95c7-8b94191efc57"),
                             Name = "Samsung Galaxy Note 10 Lite Dual SIM 128GB 6GB RAM",
                             Price = 980m,
                             Tags = "Phones;Samsung;Galaxy;Note10;Dual-Sim;",
-                            UpdatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(1717)
+                            UpdatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 279, DateTimeKind.Local).AddTicks(6132)
                         },
                         new
                         {
                             Id = 10,
                             Active = true,
-                            CreatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(1810),
+                            CreatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 279, DateTimeKind.Local).AddTicks(6204),
                             Description = @"
                         <table border=0 cellpadding=0 cellspacing=0 width=673 style='border-collapse:
                          collapse;width:506pt;box-sizing: border-box;border-image: initial;font-variant-ligatures: normal;
@@ -6717,17 +6719,17 @@ namespace Repository.Migrations
                         <!--EndFragment-->
                         </table>",
                             Discount = 0,
-                            Identifier = new Guid("876c55b9-3a24-4b96-88fd-3a4a8484e3e4"),
+                            Identifier = new Guid("dd68e329-bf23-4b0e-8d6d-3d0e76bb5092"),
                             Name = "Samsung Galaxy A50 Dual SIM 128GB 4GB RAM",
                             Price = 300m,
                             Tags = "Phones;Samsung;Galaxy;A50;Dual-Sim;",
-                            UpdatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(1814)
+                            UpdatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 279, DateTimeKind.Local).AddTicks(6206)
                         },
                         new
                         {
                             Id = 11,
                             Active = true,
-                            CreatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(1899),
+                            CreatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 279, DateTimeKind.Local).AddTicks(6334),
                             Description = @"
                         <table border=0 cellpadding=0 cellspacing=0 width=768 style='border-collapse:
                          collapse;width:576pt;box-sizing: border-box;border-image: initial;font-variant-ligatures: normal;
@@ -7297,17 +7299,17 @@ namespace Repository.Migrations
                         <!--EndFragment-->
                         </table>",
                             Discount = 0,
-                            Identifier = new Guid("4313415c-1895-4048-93e6-ab63f0577339"),
+                            Identifier = new Guid("fdd63db0-24e6-4739-a6e7-56a29591bcbd"),
                             Name = "Xiaomi Mi Note 10 Pro Dual SIM 256GB 8GB RAM",
                             Price = 510m,
                             Tags = "Phones;Xiaomi;Mi;Note10;Pro;Dual-Sim;",
-                            UpdatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(1903)
+                            UpdatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 279, DateTimeKind.Local).AddTicks(6337)
                         },
                         new
                         {
                             Id = 12,
                             Active = true,
-                            CreatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(1988),
+                            CreatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 279, DateTimeKind.Local).AddTicks(6408),
                             Description = @"
                         <table border=0 cellpadding=0 cellspacing=0 width=684 style='border-collapse:
                          collapse;width:513pt;box-sizing: border-box;border-image: initial;font-variant-ligatures: normal;
@@ -7922,479 +7924,310 @@ namespace Repository.Migrations
                         <!--EndFragment-->
                         </table>",
                             Discount = 0,
-                            Identifier = new Guid("bb1bcaee-bf95-4630-98f3-03281222d21c"),
+                            Identifier = new Guid("05607c97-16dc-4f86-911b-06b783acc3b4"),
                             Name = "Xiaomi Mi 9 Lite Dual SIM 128GB 6GB RAM",
                             Price = 350m,
                             Tags = "Phones;Xiaomi;Mi;9;Lite;Dual-Sim;",
-                            UpdatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(1992)
+                            UpdatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 279, DateTimeKind.Local).AddTicks(6411)
                         },
                         new
                         {
                             Id = 13,
                             Active = true,
-                            CreatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(2075),
+                            CreatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 279, DateTimeKind.Local).AddTicks(6476),
                             Description = "",
                             Discount = 10,
-                            Identifier = new Guid("7914448b-9f32-41e8-948a-18f8e70f480b"),
+                            Identifier = new Guid("705b9285-a4f7-45a0-887f-c73cb2bc5829"),
                             Name = "Huawei Honor 10 Lite Pink",
                             Price = 18m,
                             Tags = "Masks;",
-                            UpdatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(2079)
+                            UpdatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 279, DateTimeKind.Local).AddTicks(6479)
                         },
                         new
                         {
                             Id = 14,
                             Active = true,
-                            CreatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(2162),
+                            CreatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 279, DateTimeKind.Local).AddTicks(6544),
                             Description = "",
                             Discount = 5,
-                            Identifier = new Guid("f49ad6ae-9c4d-4eb4-955f-292bb99200af"),
+                            Identifier = new Guid("beec5c52-e70a-4987-adca-eced8b7e1368"),
                             Name = "Huawei P30 Lite Black",
                             Price = 16m,
                             Tags = "Masks;",
-                            UpdatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(2166)
+                            UpdatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 279, DateTimeKind.Local).AddTicks(6547)
                         },
                         new
                         {
                             Id = 15,
                             Active = true,
-                            CreatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(2251),
+                            CreatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 279, DateTimeKind.Local).AddTicks(6612),
                             Description = "",
                             Discount = 0,
-                            Identifier = new Guid("6fc4bc48-6988-4c75-8a98-b18c5f306458"),
+                            Identifier = new Guid("fe8f9082-b285-4992-b633-881cd261c312"),
                             Name = "LG G3 Blue",
                             Price = 12m,
                             Tags = "Masks;",
-                            UpdatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(2254)
+                            UpdatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 279, DateTimeKind.Local).AddTicks(6615)
                         },
                         new
                         {
                             Id = 16,
                             Active = true,
-                            CreatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(2370),
+                            CreatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 279, DateTimeKind.Local).AddTicks(6684),
                             Description = "",
                             Discount = 0,
-                            Identifier = new Guid("e9607844-f3d8-428b-a0b0-34785c40583d"),
+                            Identifier = new Guid("8dc713f2-2238-482e-be56-c744c867e7a2"),
                             Name = "LG K4 Pink",
                             Price = 14m,
                             Tags = "Masks;",
-                            UpdatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(2374)
+                            UpdatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 279, DateTimeKind.Local).AddTicks(6688)
                         },
                         new
                         {
                             Id = 17,
                             Active = true,
-                            CreatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(2458),
+                            CreatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 279, DateTimeKind.Local).AddTicks(6753),
                             Description = "",
                             Discount = 0,
-                            Identifier = new Guid("c92835e2-5e4c-4a34-9efb-a1c8fcb742d8"),
+                            Identifier = new Guid("1cfb5dc6-780e-4f4a-a3b8-e17a6cc2a751"),
                             Name = "Nokia 2 Black",
                             Price = 12m,
                             Tags = "Masks;",
-                            UpdatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(2461)
+                            UpdatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 279, DateTimeKind.Local).AddTicks(6756)
                         },
                         new
                         {
                             Id = 18,
                             Active = true,
-                            CreatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(2554),
+                            CreatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 279, DateTimeKind.Local).AddTicks(6826),
                             Description = "",
                             Discount = 10,
-                            Identifier = new Guid("f101c844-24f6-41a2-b729-3d06a1a0318f"),
+                            Identifier = new Guid("2bab605a-df37-49cd-9256-0a223020aeea"),
                             Name = "Nokia 5 Army",
                             Price = 10m,
                             Tags = "Masks;",
-                            UpdatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(2558)
+                            UpdatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 279, DateTimeKind.Local).AddTicks(6829)
                         },
                         new
                         {
                             Id = 19,
                             Active = true,
-                            CreatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(2642),
+                            CreatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 279, DateTimeKind.Local).AddTicks(6925),
                             Description = "",
                             Discount = 5,
-                            Identifier = new Guid("0752f286-485b-4b1e-b9fd-67c01e068e56"),
+                            Identifier = new Guid("dc44904e-763b-46b8-adb0-9902b92ea481"),
                             Name = "Apple iPhone 11 Pro Army",
                             Price = 35m,
                             Tags = "Masks;",
-                            UpdatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(2646)
+                            UpdatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 279, DateTimeKind.Local).AddTicks(6928)
                         },
                         new
                         {
                             Id = 20,
                             Active = true,
-                            CreatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(2730),
+                            CreatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 279, DateTimeKind.Local).AddTicks(6993),
                             Description = "",
                             Discount = 0,
-                            Identifier = new Guid("78b0efe6-1fcd-455b-9483-4ca767f5d646"),
+                            Identifier = new Guid("bea78d21-b9e3-4470-8241-420eaecf29f1"),
                             Name = "Apple iPhone XS Pink",
                             Price = 30m,
                             Tags = "Masks;",
-                            UpdatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(2733)
+                            UpdatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 279, DateTimeKind.Local).AddTicks(6996)
                         },
                         new
                         {
                             Id = 21,
                             Active = true,
-                            CreatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(2817),
+                            CreatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 279, DateTimeKind.Local).AddTicks(7061),
                             Description = "",
                             Discount = 0,
-                            Identifier = new Guid("2bdaa494-07f5-4ea2-b225-7eb7e94fab10"),
+                            Identifier = new Guid("47064a46-07d1-46d3-85b8-0de3f42645fe"),
                             Name = "Samsung A50 Light",
                             Price = 14m,
                             Tags = "Masks;",
-                            UpdatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(2820)
+                            UpdatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 279, DateTimeKind.Local).AddTicks(7064)
                         },
                         new
                         {
                             Id = 22,
                             Active = true,
-                            CreatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(2903),
+                            CreatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 279, DateTimeKind.Local).AddTicks(7129),
                             Description = "",
                             Discount = 0,
-                            Identifier = new Guid("821753ed-ed40-4111-b1ab-f01a5b0d9792"),
+                            Identifier = new Guid("8571c1cf-9b3a-4f02-b7e3-b59680c21b4f"),
                             Name = "Samsung S10 Lite Pattern",
                             Price = 22m,
                             Tags = "Masks;",
-                            UpdatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(2907)
+                            UpdatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 279, DateTimeKind.Local).AddTicks(7132)
                         },
                         new
                         {
                             Id = 23,
                             Active = true,
-                            CreatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(3021),
+                            CreatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 279, DateTimeKind.Local).AddTicks(7197),
                             Description = "",
                             Discount = 0,
-                            Identifier = new Guid("bcdd9af6-7fe8-424a-b78c-8925d7c5847f"),
+                            Identifier = new Guid("60993aa7-e61a-4792-a472-a4bd0bb59f29"),
                             Name = "Xiaomi Mi A2 Black",
                             Price = 5m,
                             Tags = "Masks;",
-                            UpdatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(3024)
+                            UpdatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 279, DateTimeKind.Local).AddTicks(7200)
                         },
                         new
                         {
                             Id = 24,
                             Active = true,
-                            CreatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(3108),
+                            CreatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 279, DateTimeKind.Local).AddTicks(7269),
                             Description = "",
                             Discount = 0,
-                            Identifier = new Guid("7123e720-a220-4699-b6c3-bb3a9cb9c1c3"),
+                            Identifier = new Guid("95e4d6c8-a5db-4916-be77-d1cdb111f788"),
                             Name = "Xiaomi Redmi Note 7 Blue",
                             Price = 5m,
                             Tags = "Masks;",
-                            UpdatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(3112)
+                            UpdatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 279, DateTimeKind.Local).AddTicks(7272)
                         },
                         new
                         {
                             Id = 25,
                             Active = true,
-                            CreatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(3195),
+                            CreatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 279, DateTimeKind.Local).AddTicks(7338),
                             Description = "",
                             Discount = 3,
-                            Identifier = new Guid("860a0308-3a46-4243-ac4f-b9d335c67544"),
+                            Identifier = new Guid("a979d290-4bd6-48eb-becc-d17a11f6b2fb"),
                             Name = "Huawei AM116 White",
                             Price = 24m,
                             Tags = "Earphones;",
-                            UpdatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(3199)
+                            UpdatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 279, DateTimeKind.Local).AddTicks(7340)
                         },
                         new
                         {
                             Id = 26,
                             Active = true,
-                            CreatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(3287),
+                            CreatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 279, DateTimeKind.Local).AddTicks(7406),
                             Description = "",
                             Discount = 3,
-                            Identifier = new Guid("1f11b77b-13e6-476c-9552-12c20af022e9"),
+                            Identifier = new Guid("1a62a42b-6e7c-468a-b0ae-239ff0fef6eb"),
                             Name = "Huawei CM70c Bluetooth",
                             Price = 34m,
                             Tags = "Earphones;",
-                            UpdatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(3290)
+                            UpdatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 279, DateTimeKind.Local).AddTicks(7409)
                         },
                         new
                         {
                             Id = 27,
                             Active = true,
-                            CreatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(3374),
+                            CreatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 279, DateTimeKind.Local).AddTicks(7505),
                             Description = "",
                             Discount = 3,
-                            Identifier = new Guid("dfb70d50-9111-42d2-b9dd-aa68a27766ba"),
+                            Identifier = new Guid("795c6ba7-422b-4a56-be07-fb55091d45d6"),
                             Name = "LG HBS 835 Tone Ultra Bluetooth",
                             Price = 28m,
                             Tags = "Earphones;",
-                            UpdatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(3378)
+                            UpdatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 279, DateTimeKind.Local).AddTicks(7508)
                         },
                         new
                         {
                             Id = 29,
                             Active = true,
-                            CreatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(3461),
+                            CreatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 279, DateTimeKind.Local).AddTicks(7574),
                             Description = "",
                             Discount = 0,
-                            Identifier = new Guid("21af3303-83c0-426b-8ad8-124d85ab93be"),
+                            Identifier = new Guid("9a4b7890-c095-40ac-b54c-c19c833fdf0b"),
                             Name = "Nokia DAB",
                             Price = 11m,
                             Tags = "Earphones;",
-                            UpdatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(3464)
+                            UpdatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 279, DateTimeKind.Local).AddTicks(7577)
                         },
                         new
                         {
                             Id = 30,
                             Active = true,
-                            CreatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(3548),
+                            CreatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 279, DateTimeKind.Local).AddTicks(7642),
                             Description = "",
                             Discount = 0,
-                            Identifier = new Guid("51e1ff95-91dd-43e1-af9a-fa4d193a28f6"),
+                            Identifier = new Guid("0f2f9289-732e-477e-8a7b-936cc680f117"),
                             Name = "Nokia Pro Wireless",
                             Price = 32m,
                             Tags = "Earphones;",
-                            UpdatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(3551)
+                            UpdatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 279, DateTimeKind.Local).AddTicks(7645)
                         },
                         new
                         {
                             Id = 31,
                             Active = true,
-                            CreatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(3634),
+                            CreatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 279, DateTimeKind.Local).AddTicks(7710),
                             Description = "",
                             Discount = 5,
-                            Identifier = new Guid("973af2a8-8fca-4ea7-8f74-7190e19ec4dc"),
+                            Identifier = new Guid("7fd05ac8-8bf8-49e4-b355-15df4a91588d"),
                             Name = "Apple AirPods 2019",
                             Price = 199m,
                             Tags = "Earphones;",
-                            UpdatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(3638)
+                            UpdatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 279, DateTimeKind.Local).AddTicks(7713)
                         },
                         new
                         {
                             Id = 32,
                             Active = true,
-                            CreatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(3754),
+                            CreatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 279, DateTimeKind.Local).AddTicks(7779),
                             Description = "",
                             Discount = 0,
-                            Identifier = new Guid("b4b5736d-69f2-4f94-9072-284300caaaab"),
+                            Identifier = new Guid("5d90b2a5-109b-41ab-9975-78653ae44836"),
                             Name = "Apple iPhone 5, iPhone 6 Wired",
                             Price = 20m,
                             Tags = "Earphones;",
-                            UpdatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(3757)
+                            UpdatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 279, DateTimeKind.Local).AddTicks(7782)
                         },
                         new
                         {
                             Id = 33,
                             Active = true,
-                            CreatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(3841),
+                            CreatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 279, DateTimeKind.Local).AddTicks(7851),
                             Description = "",
                             Discount = 1,
-                            Identifier = new Guid("b5d7e67d-76d1-4225-aac1-ff0aed0f56d2"),
+                            Identifier = new Guid("a423b4db-abf4-422e-b83b-442b52f853ca"),
                             Name = "Samsung EO HS1301be Wireless White",
                             Price = 23m,
                             Tags = "Earphones;",
-                            UpdatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(3844)
+                            UpdatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 279, DateTimeKind.Local).AddTicks(7854)
                         },
                         new
                         {
                             Id = 34,
                             Active = true,
-                            CreatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(3929),
+                            CreatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 279, DateTimeKind.Local).AddTicks(7921),
                             Description = "",
                             Discount = 4,
-                            Identifier = new Guid("a2767db8-2249-4e47-967f-4d4b48e39fd1"),
+                            Identifier = new Guid("aaeb79a7-5409-4769-a7d3-62294da25327"),
                             Name = "Samsung mg900 ewe Bluetooth Mono",
                             Price = 22m,
                             Tags = "Earphones;",
-                            UpdatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(3932)
+                            UpdatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 279, DateTimeKind.Local).AddTicks(7924)
                         },
                         new
                         {
                             Id = 35,
                             Active = true,
-                            CreatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(4024),
+                            CreatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 279, DateTimeKind.Local).AddTicks(8022),
                             Description = "",
                             Discount = 5,
-                            Identifier = new Guid("e1865792-9632-4ac6-8b04-45996bd7b62f"),
+                            Identifier = new Guid("e1894cb3-dffc-43dc-b7d3-b2b4c09ed877"),
                             Name = "Xiaomi Mi Dual Driver",
                             Price = 11m,
                             Tags = "Earphones;",
-                            UpdatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(4028)
+                            UpdatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 279, DateTimeKind.Local).AddTicks(8025)
                         },
                         new
                         {
                             Id = 36,
                             Active = true,
-                            CreatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(4136),
+                            CreatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 279, DateTimeKind.Local).AddTicks(8114),
                             Description = "",
                             Discount = 0,
-                            Identifier = new Guid("7f6386ae-6710-4c8b-ba67-5a546ae4052b"),
+                            Identifier = new Guid("bba1d1ee-57c5-46a6-a292-60e7429b9ea9"),
                             Name = "Xiaomi Mi Earphones Basic",
                             Price = 7m,
                             Tags = "Earphones;",
-                            UpdatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(4139)
-                        },
-                        new
-                        {
-                            Id = 37,
-                            Active = true,
-                            CreatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(4224),
-                            Description = "",
-                            Discount = 5,
-                            Identifier = new Guid("3c004605-5279-4fbe-a5ca-f9955e5f7349"),
-                            Name = "Charger 1",
-                            Price = 11m,
-                            Tags = "Chargers;",
-                            UpdatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(4227)
-                        },
-                        new
-                        {
-                            Id = 38,
-                            Active = true,
-                            CreatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(4312),
-                            Description = "",
-                            Discount = 5,
-                            Identifier = new Guid("7aba8cd4-8015-4f67-84a8-8b98944da10a"),
-                            Name = "Charger 2",
-                            Price = 11m,
-                            Tags = "Chargers;",
-                            UpdatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(4315)
-                        },
-                        new
-                        {
-                            Id = 39,
-                            Active = true,
-                            CreatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(4431),
-                            Description = "",
-                            Discount = 5,
-                            Identifier = new Guid("819d209a-2dcf-4da5-a536-b36efa0a6b3c"),
-                            Name = "Charger 3",
-                            Price = 11m,
-                            Tags = "Chargers;",
-                            UpdatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(4435)
-                        },
-                        new
-                        {
-                            Id = 40,
-                            Active = true,
-                            CreatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(4518),
-                            Description = "",
-                            Discount = 5,
-                            Identifier = new Guid("8945d305-2dc1-44e9-820b-ef3d676a33a6"),
-                            Name = "Charger 4",
-                            Price = 11m,
-                            Tags = "Chargers;",
-                            UpdatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(4522)
-                        },
-                        new
-                        {
-                            Id = 41,
-                            Active = true,
-                            CreatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(4606),
-                            Description = "",
-                            Discount = 5,
-                            Identifier = new Guid("d8da2c4f-23fa-4f1a-a9c0-4124ea033d03"),
-                            Name = "Charger 5",
-                            Price = 11m,
-                            Tags = "Chargers;",
-                            UpdatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(4610)
-                        },
-                        new
-                        {
-                            Id = 42,
-                            Active = true,
-                            CreatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(4693),
-                            Description = "PowerBank with capacity of 10000mAh.",
-                            Discount = 5,
-                            Identifier = new Guid("974010dc-2458-4585-aa0f-ad678e823dd9"),
-                            Name = "Power Bank",
-                            Price = 25m,
-                            Tags = "Chargers;PowerBanks;",
-                            UpdatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(4697)
-                        },
-                        new
-                        {
-                            Id = 43,
-                            Active = true,
-                            CreatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(4785),
-                            Description = "A Galaxy S4 Battery",
-                            Discount = 1,
-                            Identifier = new Guid("b9a2420f-93fa-4b2d-be4d-4468dd7607f7"),
-                            Name = "Samsuing Galaxy S4 Battery",
-                            Price = 11m,
-                            Tags = "Batteries;",
-                            UpdatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(4789)
-                        },
-                        new
-                        {
-                            Id = 44,
-                            Active = true,
-                            CreatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(4873),
-                            Description = "A Galaxy W Battery",
-                            Discount = 1,
-                            Identifier = new Guid("4405962e-e7a4-46be-a279-c2dde4a93574"),
-                            Name = "Samsuing Galaxy W Battery",
-                            Price = 10m,
-                            Tags = "Batteries;",
-                            UpdatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(4876)
-                        },
-                        new
-                        {
-                            Id = 45,
-                            Active = true,
-                            CreatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(4961),
-                            Description = "A Galaxy S3 Battery",
-                            Discount = 0,
-                            Identifier = new Guid("6b08d090-a899-4ebc-8f6c-46e8f4564276"),
-                            Name = "Samsuing Galaxy S3 Battery",
-                            Price = 8m,
-                            Tags = "Batteries;",
-                            UpdatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(4966)
-                        },
-                        new
-                        {
-                            Id = 46,
-                            Active = true,
-                            CreatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(5050),
-                            Description = "A Huawei P10 Battery",
-                            Discount = 1,
-                            Identifier = new Guid("ddf43086-c288-42ff-b3c8-87c88750f52c"),
-                            Name = "Huawei P10 Battery",
-                            Price = 17m,
-                            Tags = "Batteries;",
-                            UpdatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(5053)
-                        },
-                        new
-                        {
-                            Id = 47,
-                            Active = true,
-                            CreatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(5167),
-                            Description = "A Replacement Battery",
-                            Discount = 1,
-                            Identifier = new Guid("4b6fdfc8-362c-4229-a02f-ea5861f099ae"),
-                            Name = "Replacement Battery",
-                            Price = 11m,
-                            Tags = "Batteries;",
-                            UpdatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(5170)
-                        },
-                        new
-                        {
-                            Id = 48,
-                            Active = true,
-                            CreatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(5254),
-                            Description = "An Apple iPhone 4S Battery",
-                            Discount = 1,
-                            Identifier = new Guid("889ecd13-e683-4ae3-b34b-5cc954ebb6cf"),
-                            Name = "Apple iPhone 4S Battery",
-                            Price = 24m,
-                            Tags = "Batteries;",
-                            UpdatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(5258)
-                        },
-                        new
-                        {
-                            Id = 49,
-                            Active = true,
-                            CreatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(5342),
-                            Description = "A U8500 Replacement Battery",
-                            Discount = 0,
-                            Identifier = new Guid("93e08900-467e-4a90-996f-3932614d2d7b"),
-                            Name = "U8500 Replacement Battery",
-                            Price = 19m,
-                            Tags = "Batteries;",
-                            UpdatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 319, DateTimeKind.Local).AddTicks(5346)
+                            UpdatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 279, DateTimeKind.Local).AddTicks(8117)
                         });
                 });
 
@@ -8623,84 +8456,6 @@ namespace Repository.Migrations
                             ProductId = 36,
                             PhotoPath = "/photos/earphones/Xiaomi/xiaomi-mi-earphones-basic.jpg",
                             MainPhoto = true
-                        },
-                        new
-                        {
-                            ProductId = 37,
-                            PhotoPath = "/photos/chargers/c1.jpg",
-                            MainPhoto = true
-                        },
-                        new
-                        {
-                            ProductId = 38,
-                            PhotoPath = "/photos/chargers/c2.jpg",
-                            MainPhoto = true
-                        },
-                        new
-                        {
-                            ProductId = 39,
-                            PhotoPath = "/photos/chargers/c3.jpg",
-                            MainPhoto = true
-                        },
-                        new
-                        {
-                            ProductId = 40,
-                            PhotoPath = "/photos/chargers/c4.jpg",
-                            MainPhoto = true
-                        },
-                        new
-                        {
-                            ProductId = 41,
-                            PhotoPath = "/photos/chargers/c5.jpg",
-                            MainPhoto = true
-                        },
-                        new
-                        {
-                            ProductId = 42,
-                            PhotoPath = "/photos/chargers/c6powerbank.jpg",
-                            MainPhoto = true
-                        },
-                        new
-                        {
-                            ProductId = 43,
-                            PhotoPath = "/photos/batteries/Baterija-za-Samsung-Galaxy-S4.jpg",
-                            MainPhoto = true
-                        },
-                        new
-                        {
-                            ProductId = 44,
-                            PhotoPath = "/photos/batteries/Baterija-za-Samsung-Galaxy-W.jpg",
-                            MainPhoto = true
-                        },
-                        new
-                        {
-                            ProductId = 45,
-                            PhotoPath = "/photos/batteries/Samsung-Galaxy-S3-baterija.jpg",
-                            MainPhoto = true
-                        },
-                        new
-                        {
-                            ProductId = 46,
-                            PhotoPath = "/photos/batteries/thumb_ORG_G510.jpg",
-                            MainPhoto = true
-                        },
-                        new
-                        {
-                            ProductId = 47,
-                            PhotoPath = "/photos/batteries/thumb_se_org1.jpg",
-                            MainPhoto = true
-                        },
-                        new
-                        {
-                            ProductId = 48,
-                            PhotoPath = "/photos/batteries/thumb_slika-iPhone-4s.jpg",
-                            MainPhoto = true
-                        },
-                        new
-                        {
-                            ProductId = 49,
-                            PhotoPath = "/photos/batteries/thumb_u8500.jpg",
-                            MainPhoto = true
                         });
                 });
 
@@ -8743,249 +8498,249 @@ namespace Repository.Migrations
                         {
                             Id = 1,
                             Active = true,
-                            CreatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 316, DateTimeKind.Local).AddTicks(7550),
+                            CreatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 277, DateTimeKind.Local).AddTicks(3028),
                             Description = "Phones",
-                            Identifier = new Guid("599a58c3-b3bf-4bda-92c1-1f529848b0ba"),
+                            Identifier = new Guid("a177e62b-e74b-461f-b356-de6ff7929aa1"),
                             Name = "Phones",
-                            UpdatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 316, DateTimeKind.Local).AddTicks(8124)
+                            UpdatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 277, DateTimeKind.Local).AddTicks(3526)
                         },
                         new
                         {
                             Id = 2,
                             Active = true,
-                            CreatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 316, DateTimeKind.Local).AddTicks(8753),
+                            CreatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 277, DateTimeKind.Local).AddTicks(4098),
                             Description = "Masks",
-                            Identifier = new Guid("2eff145c-83fe-4465-a9e0-2b2d04104c17"),
+                            Identifier = new Guid("89a898aa-4206-4822-9b8d-81366a7e473a"),
                             Name = "Masks",
-                            UpdatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 316, DateTimeKind.Local).AddTicks(8774)
+                            UpdatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 277, DateTimeKind.Local).AddTicks(4118)
                         },
                         new
                         {
                             Id = 3,
                             Active = true,
-                            CreatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 316, DateTimeKind.Local).AddTicks(8795),
+                            CreatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 277, DateTimeKind.Local).AddTicks(4134),
                             Description = "Chargers",
-                            Identifier = new Guid("b5ea9560-29b7-4a98-bc33-a8c052aa2b05"),
+                            Identifier = new Guid("7f294bf3-fbde-4738-bcd5-b6a1c943757d"),
                             Name = "Chargers",
-                            UpdatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 316, DateTimeKind.Local).AddTicks(8799)
+                            UpdatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 277, DateTimeKind.Local).AddTicks(4138)
                         },
                         new
                         {
                             Id = 4,
                             Active = true,
-                            CreatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 316, DateTimeKind.Local).AddTicks(8811),
+                            CreatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 277, DateTimeKind.Local).AddTicks(4147),
                             Description = "Earphones",
-                            Identifier = new Guid("186939e5-41e3-4ec1-a52a-b9436be17625"),
+                            Identifier = new Guid("fd054076-3e82-4719-b3a8-4b05dbff6685"),
                             Name = "Earphones",
-                            UpdatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 316, DateTimeKind.Local).AddTicks(8814)
+                            UpdatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 277, DateTimeKind.Local).AddTicks(4150)
                         },
                         new
                         {
                             Id = 5,
                             Active = true,
-                            CreatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 316, DateTimeKind.Local).AddTicks(8826),
+                            CreatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 277, DateTimeKind.Local).AddTicks(4160),
                             Description = "Batteries",
-                            Identifier = new Guid("199bf5db-b76a-40be-b147-58d68105ef02"),
+                            Identifier = new Guid("594aa304-1909-415c-a0a1-7df045dc6e5b"),
                             Name = "Batteries",
-                            UpdatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 316, DateTimeKind.Local).AddTicks(8830)
+                            UpdatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 277, DateTimeKind.Local).AddTicks(4163)
                         },
                         new
                         {
                             Id = 6,
                             Active = true,
-                            CreatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 316, DateTimeKind.Local).AddTicks(9381),
+                            CreatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 277, DateTimeKind.Local).AddTicks(4696),
                             Description = "Huawei",
-                            Identifier = new Guid("35022547-0764-4aec-8c7b-0143fca16d97"),
+                            Identifier = new Guid("a273dc1c-1202-45e1-8b80-cf7c391c5d58"),
                             Name = "Huawei",
                             ParentProductTypeId = 1,
-                            UpdatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 316, DateTimeKind.Local).AddTicks(9396)
+                            UpdatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 277, DateTimeKind.Local).AddTicks(4710)
                         },
                         new
                         {
                             Id = 7,
                             Active = true,
-                            CreatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 316, DateTimeKind.Local).AddTicks(9424),
+                            CreatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 277, DateTimeKind.Local).AddTicks(4749),
                             Description = "LG",
-                            Identifier = new Guid("6ba3a491-b841-4eaf-8abd-1fb772e0d983"),
+                            Identifier = new Guid("455c6438-c73f-4804-af65-81c58f8a927c"),
                             Name = "LG",
                             ParentProductTypeId = 1,
-                            UpdatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 316, DateTimeKind.Local).AddTicks(9428)
+                            UpdatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 277, DateTimeKind.Local).AddTicks(4752)
                         },
                         new
                         {
                             Id = 8,
                             Active = true,
-                            CreatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 316, DateTimeKind.Local).AddTicks(9440),
+                            CreatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 277, DateTimeKind.Local).AddTicks(4762),
                             Description = "Nokia",
-                            Identifier = new Guid("60a7553f-d27f-4ecf-b454-4e45ffa8b75c"),
+                            Identifier = new Guid("e67ff7be-f9e9-4fa7-a6e1-32e61c8b7729"),
                             Name = "Nokia",
                             ParentProductTypeId = 1,
-                            UpdatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 316, DateTimeKind.Local).AddTicks(9444)
+                            UpdatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 277, DateTimeKind.Local).AddTicks(4765)
                         },
                         new
                         {
                             Id = 9,
                             Active = true,
-                            CreatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 316, DateTimeKind.Local).AddTicks(9463),
+                            CreatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 277, DateTimeKind.Local).AddTicks(4775),
                             Description = "Apple",
-                            Identifier = new Guid("07ad19d9-919d-4d2a-bfb5-6ddaece82284"),
+                            Identifier = new Guid("d4d97ecc-e5d8-4eec-b3ab-a86b156a28c5"),
                             Name = "Apple",
                             ParentProductTypeId = 1,
-                            UpdatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 316, DateTimeKind.Local).AddTicks(9467)
+                            UpdatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 277, DateTimeKind.Local).AddTicks(4778)
                         },
                         new
                         {
                             Id = 10,
                             Active = true,
-                            CreatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 316, DateTimeKind.Local).AddTicks(9480),
+                            CreatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 277, DateTimeKind.Local).AddTicks(4788),
                             Description = "Samsung",
-                            Identifier = new Guid("9c970fbc-3240-40c0-9179-8d04fcdad844"),
+                            Identifier = new Guid("0c7617b3-4b5f-4193-a6be-85817126e488"),
                             Name = "Samsung",
                             ParentProductTypeId = 1,
-                            UpdatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 316, DateTimeKind.Local).AddTicks(9484)
+                            UpdatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 277, DateTimeKind.Local).AddTicks(4791)
                         },
                         new
                         {
                             Id = 11,
                             Active = true,
-                            CreatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 316, DateTimeKind.Local).AddTicks(9496),
+                            CreatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 277, DateTimeKind.Local).AddTicks(4801),
                             Description = "Xiaomi",
-                            Identifier = new Guid("36a2e870-8825-4857-a85e-337034de4054"),
+                            Identifier = new Guid("0257f0f1-1a90-46d8-9086-43cad3e7861e"),
                             Name = "Xiaomi",
                             ParentProductTypeId = 1,
-                            UpdatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 316, DateTimeKind.Local).AddTicks(9500)
+                            UpdatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 277, DateTimeKind.Local).AddTicks(4804)
                         },
                         new
                         {
                             Id = 12,
                             Active = true,
-                            CreatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 316, DateTimeKind.Local).AddTicks(9512),
+                            CreatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 277, DateTimeKind.Local).AddTicks(4814),
                             Description = "Huawei",
-                            Identifier = new Guid("9b524223-8f95-46b4-ab94-d2dee3560923"),
+                            Identifier = new Guid("4638e547-96fa-4161-9a4e-0f0236618b56"),
                             Name = "Huawei",
                             ParentProductTypeId = 2,
-                            UpdatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 316, DateTimeKind.Local).AddTicks(9515)
+                            UpdatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 277, DateTimeKind.Local).AddTicks(4817)
                         },
                         new
                         {
                             Id = 13,
                             Active = true,
-                            CreatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 316, DateTimeKind.Local).AddTicks(9527),
+                            CreatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 277, DateTimeKind.Local).AddTicks(4827),
                             Description = "LG",
-                            Identifier = new Guid("5c14aafe-d06d-4d56-a39f-6be659915e55"),
+                            Identifier = new Guid("23015f22-07c3-4df5-a5b8-e154d13da8df"),
                             Name = "LG",
                             ParentProductTypeId = 2,
-                            UpdatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 316, DateTimeKind.Local).AddTicks(9531)
+                            UpdatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 277, DateTimeKind.Local).AddTicks(4830)
                         },
                         new
                         {
                             Id = 14,
                             Active = true,
-                            CreatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 316, DateTimeKind.Local).AddTicks(9543),
+                            CreatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 277, DateTimeKind.Local).AddTicks(4840),
                             Description = "Nokia",
-                            Identifier = new Guid("929e1aad-4749-451b-aaa1-4a836dcec691"),
+                            Identifier = new Guid("16ada2e8-f458-4656-add3-a0bffa79d39d"),
                             Name = "Nokia",
                             ParentProductTypeId = 2,
-                            UpdatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 316, DateTimeKind.Local).AddTicks(9546)
+                            UpdatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 277, DateTimeKind.Local).AddTicks(4844)
                         },
                         new
                         {
                             Id = 15,
                             Active = true,
-                            CreatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 316, DateTimeKind.Local).AddTicks(9558),
+                            CreatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 277, DateTimeKind.Local).AddTicks(4857),
                             Description = "Apple",
-                            Identifier = new Guid("a05b2dbd-cdb5-4057-9421-8520aa7984db"),
+                            Identifier = new Guid("2c5e213f-80c4-4c43-b37b-cbe7b7533c22"),
                             Name = "Apple",
                             ParentProductTypeId = 2,
-                            UpdatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 316, DateTimeKind.Local).AddTicks(9562)
+                            UpdatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 277, DateTimeKind.Local).AddTicks(4860)
                         },
                         new
                         {
                             Id = 16,
                             Active = true,
-                            CreatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 316, DateTimeKind.Local).AddTicks(9574),
+                            CreatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 277, DateTimeKind.Local).AddTicks(4870),
                             Description = "Samsung",
-                            Identifier = new Guid("8c0196e2-ef06-4824-a07b-2c6902a51761"),
+                            Identifier = new Guid("0abba9b1-829a-48f3-9eb6-06c1842ebae7"),
                             Name = "Samsung",
                             ParentProductTypeId = 2,
-                            UpdatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 316, DateTimeKind.Local).AddTicks(9578)
+                            UpdatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 277, DateTimeKind.Local).AddTicks(4873)
                         },
                         new
                         {
                             Id = 17,
                             Active = true,
-                            CreatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 316, DateTimeKind.Local).AddTicks(9593),
+                            CreatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 277, DateTimeKind.Local).AddTicks(4883),
                             Description = "Xiaomi",
-                            Identifier = new Guid("33966e12-3bc4-410b-ae6d-9b5710cd31f8"),
+                            Identifier = new Guid("0b97fbac-4182-4ee9-bfd7-529e84ae116e"),
                             Name = "Xiaomi",
                             ParentProductTypeId = 2,
-                            UpdatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 316, DateTimeKind.Local).AddTicks(9597)
+                            UpdatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 277, DateTimeKind.Local).AddTicks(4886)
                         },
                         new
                         {
                             Id = 18,
                             Active = true,
-                            CreatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 316, DateTimeKind.Local).AddTicks(9609),
+                            CreatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 277, DateTimeKind.Local).AddTicks(4896),
                             Description = "Huawei",
-                            Identifier = new Guid("83096f61-fad4-462c-926a-82a668f0c240"),
+                            Identifier = new Guid("96fcde7b-5988-487e-b677-285620bbbb42"),
                             Name = "Huawei",
                             ParentProductTypeId = 4,
-                            UpdatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 316, DateTimeKind.Local).AddTicks(9612)
+                            UpdatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 277, DateTimeKind.Local).AddTicks(4899)
                         },
                         new
                         {
                             Id = 19,
                             Active = true,
-                            CreatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 316, DateTimeKind.Local).AddTicks(9624),
+                            CreatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 277, DateTimeKind.Local).AddTicks(4908),
                             Description = "LG",
-                            Identifier = new Guid("baae1056-f2f9-4e66-9745-04b65e37e936"),
+                            Identifier = new Guid("988eb960-c2f2-4aa4-a05b-dd4487394563"),
                             Name = "LG",
                             ParentProductTypeId = 4,
-                            UpdatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 316, DateTimeKind.Local).AddTicks(9628)
+                            UpdatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 277, DateTimeKind.Local).AddTicks(4911)
                         },
                         new
                         {
                             Id = 20,
                             Active = true,
-                            CreatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 316, DateTimeKind.Local).AddTicks(9640),
+                            CreatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 277, DateTimeKind.Local).AddTicks(4921),
                             Description = "Nokia",
-                            Identifier = new Guid("d53d7c86-97b9-4d6f-86f6-2d89ab4b8190"),
+                            Identifier = new Guid("13536893-5ea3-4348-8976-f06d0b6162e0"),
                             Name = "Nokia",
                             ParentProductTypeId = 4,
-                            UpdatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 316, DateTimeKind.Local).AddTicks(9643)
+                            UpdatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 277, DateTimeKind.Local).AddTicks(4924)
                         },
                         new
                         {
                             Id = 21,
                             Active = true,
-                            CreatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 316, DateTimeKind.Local).AddTicks(9655),
+                            CreatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 277, DateTimeKind.Local).AddTicks(4934),
                             Description = "Apple",
-                            Identifier = new Guid("41dce4e1-84fc-48b2-982c-d984e93e4740"),
+                            Identifier = new Guid("0bd83a50-d91d-4536-869c-ecd1889144b4"),
                             Name = "Apple",
                             ParentProductTypeId = 4,
-                            UpdatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 316, DateTimeKind.Local).AddTicks(9659)
+                            UpdatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 277, DateTimeKind.Local).AddTicks(4937)
                         },
                         new
                         {
                             Id = 22,
                             Active = true,
-                            CreatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 316, DateTimeKind.Local).AddTicks(9671),
+                            CreatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 277, DateTimeKind.Local).AddTicks(4947),
                             Description = "Samsung",
-                            Identifier = new Guid("e6110c5e-552f-40f3-a421-a979f57714e4"),
+                            Identifier = new Guid("bb621b94-8eec-47ce-9c17-b2a981b7cd4e"),
                             Name = "Samsung",
                             ParentProductTypeId = 4,
-                            UpdatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 316, DateTimeKind.Local).AddTicks(9675)
+                            UpdatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 277, DateTimeKind.Local).AddTicks(4950)
                         },
                         new
                         {
                             Id = 23,
                             Active = true,
-                            CreatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 316, DateTimeKind.Local).AddTicks(9687),
+                            CreatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 277, DateTimeKind.Local).AddTicks(4963),
                             Description = "Xiaomi",
-                            Identifier = new Guid("62542c3e-44ba-4718-91a9-3f56a503abac"),
+                            Identifier = new Guid("1d2d13e4-d75a-4385-a61f-3d4cb7698e26"),
                             Name = "Xiaomi",
                             ParentProductTypeId = 4,
-                            UpdatedAt = new DateTime(2020, 2, 28, 1, 15, 34, 316, DateTimeKind.Local).AddTicks(9691)
+                            UpdatedAt = new DateTime(2020, 2, 28, 1, 4, 0, 277, DateTimeKind.Local).AddTicks(4966)
                         });
                 });
 
@@ -9178,71 +8933,6 @@ namespace Repository.Migrations
                         {
                             ProductId = 36,
                             ProductTypeId = 23
-                        },
-                        new
-                        {
-                            ProductId = 37,
-                            ProductTypeId = 3
-                        },
-                        new
-                        {
-                            ProductId = 38,
-                            ProductTypeId = 3
-                        },
-                        new
-                        {
-                            ProductId = 39,
-                            ProductTypeId = 3
-                        },
-                        new
-                        {
-                            ProductId = 40,
-                            ProductTypeId = 3
-                        },
-                        new
-                        {
-                            ProductId = 41,
-                            ProductTypeId = 3
-                        },
-                        new
-                        {
-                            ProductId = 42,
-                            ProductTypeId = 3
-                        },
-                        new
-                        {
-                            ProductId = 43,
-                            ProductTypeId = 5
-                        },
-                        new
-                        {
-                            ProductId = 44,
-                            ProductTypeId = 5
-                        },
-                        new
-                        {
-                            ProductId = 45,
-                            ProductTypeId = 5
-                        },
-                        new
-                        {
-                            ProductId = 46,
-                            ProductTypeId = 5
-                        },
-                        new
-                        {
-                            ProductId = 47,
-                            ProductTypeId = 5
-                        },
-                        new
-                        {
-                            ProductId = 48,
-                            ProductTypeId = 5
-                        },
-                        new
-                        {
-                            ProductId = 49,
-                            ProductTypeId = 5
                         });
                 });
 

@@ -82,5 +82,72 @@ namespace BlazorUI.Helpers
             }
             return string.Empty;
         }
+        public static string SendMail(string firstName, string lastName, string email, string subject, string message)
+        {
+            try
+            {
+                string emailFromEnv = Environment.GetEnvironmentVariable("EMAIL_FROM");
+                string emailFromAccountEnv = Environment.GetEnvironmentVariable("EMAIL_FROM_ACCOUNT");
+                string emailFromAccountPasswordEnv = Environment.GetEnvironmentVariable("EMAIL_FROM_ACCOUNT_PASSWORD");
+                string smtpAddressFromEnv = Environment.GetEnvironmentVariable("EMAIL_SMTP_ADDRESS");
+                int smtpPortFromEnv = Int32.Parse(Environment.GetEnvironmentVariable("EMAIL_SMTP_PORT"));
+
+                using (MailMessage mail = new MailMessage())
+                {
+                    mail.From = new MailAddress(emailFromEnv);
+                    mail.To.Add(emailFromEnv);
+                    mail.Subject = $"New Contact Request/Message - {email}";
+                    mail.Body = $"You've received a message via Contact form on the website.<br/>" +
+                        $"Sender:{firstName} {lastName}<br/>" +
+                        $"Email: {email}<br/>" +
+                        $"Subject: {subject}<br/>" +
+                        $"Content:<br/>{message}<br/>";
+                    mail.IsBodyHtml = true;
+                    using (SmtpClient smtp = new SmtpClient(smtpAddressFromEnv, smtpPortFromEnv))
+                    {
+                        smtp.Host = smtpAddressFromEnv;
+                        smtp.Port = smtpPortFromEnv;
+                        smtp.UseDefaultCredentials = false;
+                        smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+                        smtp.Credentials = new NetworkCredential(emailFromEnv, emailFromAccountPasswordEnv);
+                        smtp.EnableSsl = true;
+                        smtp.Send(mail);
+                    }
+                }
+                using (MailMessage mail = new MailMessage())
+                {
+                    mail.From = new MailAddress(emailFromEnv);
+                    mail.To.Add(email);
+                    mail.Subject = "Your contact request will be read soon.";
+                    mail.Body = $"You've sent a message via Contact form on the website.<br/>Content is shown below:<br/>" +
+                        $"Sender:{firstName} {lastName}<br/>" +
+                        $"Email: {email}<br/>" +
+                        $"Subject: {subject}<br/>" +
+                        $"Content:<br/>{message}<br/><br/>This is an automated message. If you haven't sen't anything, contact us at: {emailFromEnv}.<br/>" +
+                        $"If you have sent it, please ignore this message.";
+                    mail.IsBodyHtml = true;
+                    using (SmtpClient smtp = new SmtpClient(smtpAddressFromEnv, smtpPortFromEnv))
+                    {
+                        smtp.Host = smtpAddressFromEnv;
+                        smtp.Port = smtpPortFromEnv;
+                        smtp.UseDefaultCredentials = false;
+                        smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
+                        smtp.Credentials = new NetworkCredential(emailFromEnv, emailFromAccountPasswordEnv);
+                        smtp.EnableSsl = true;
+                        smtp.Send(mail);
+                    }
+                }
+
+            }
+            catch (SmtpFailedRecipientException exception)
+            {
+                Debug.WriteLine(exception.StackTrace);
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.StackTrace);
+            }
+            return string.Empty;
+        }
     }
 }

@@ -76,6 +76,7 @@ namespace Repository.Implementations
         public async Task<Product> GetProduct(int parentId)
         {
             return await context.Products
+                .Include(x => x.ProductPhotos)
                 .Include(x => x.Product_ProductTypes)
                 .ThenInclude(x => x.ProductType)
                 .Where(x => x.Id == parentId).FirstOrDefaultAsync();
@@ -91,6 +92,7 @@ namespace Repository.Implementations
             bool discountOnly = productFilter?.DiscountOnly ?? false;
 
             var queryable = context.Products
+                .Include(x => x.ProductPhotos)
                 .Include(x => x.Product_ProductTypes)
                 .ThenInclude(x => x.ProductType)
                 .Where(x => productFilter.ProductTypeId == null

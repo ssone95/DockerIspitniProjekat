@@ -47,10 +47,11 @@
                         <!-- Name -->
                         <div class="cart_item_product d-flex flex-row align-items-center justify-content-start">
                             <div class="cart_item_image">
-                                <div><img src="images/cart_1.jpg" alt=""></div>
+                                <div><img src="@(product.Product?.ProductPhotos[0]?.PhotoPath)" alt=""></div>
                             </div>
                             <div class="cart_item_name_container">
-                                <div class="cart_item_name"><a href="#">@product.Product.Name</a></div>
+                                <div class="cart_item_name"><a href="/Product/@product?.Product?.Id">@product.Product.Name</a></div>
+                                <div class="cart_item_name"><button class="nav-link" @onclick="@(() => RemoveFromCart(product.Product.Id))">Remove from Cart</button></div>
                             </div>
                         </div>
                         <!-- Price -->
@@ -96,21 +97,21 @@
                     <div class="delivery_options">
                         <label class="delivery_option clearfix">
                             Next day delivery
-                            <input type="radio" name="radio" @onchange="@(() => DeliveryPrice(4.99m))" 
+                            <input type="radio" name="radio" @onchange="@(() => DeliveryPrice(4.99m))"
                                    checked="@(ShippingEquals(4.99m))">
                             <span class="checkmark"></span>
                             <span class="delivery_price">&euro;4.99</span>
                         </label>
                         <label class="delivery_option clearfix">
                             Standard delivery
-                            <input type="radio" name="radio" @onchange="@(() => DeliveryPrice(1.99m))" 
+                            <input type="radio" name="radio" @onchange="@(() => DeliveryPrice(1.99m))"
                                    checked="@(ShippingEquals(1.99m))">
                             <span class="checkmark"></span>
                             <span class="delivery_price">&euro;1.99</span>
                         </label>
                         <label class="delivery_option clearfix">
                             Personal pickup
-                            <input type="radio" name="radio" @onchange="@(() => DeliveryPrice(0))" 
+                            <input type="radio" name="radio" @onchange="@(() => DeliveryPrice(0))"
                                    checked="@(ShippingEquals(0))">
                             <span class="checkmark"></span>
                             <span class="delivery_price">Free</span>
@@ -123,10 +124,10 @@
                     <div class="section_title">Coupon code</div>
                     <div class="section_subtitle">Enter your coupon code</div>
                     <div class="coupon_form_container">
-                        <form action="#" id="coupon_form" class="coupon_form">
+                        <div id="coupon_form" class="coupon_form">
                             <input type="text" class="coupon_input" required="required" @bind-value="CouponFieldValue">
                             <button class="button coupon_button" @onclick="ApplyCoupon"><span>Apply</span></button>
-                        </form>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -162,13 +163,17 @@
 @inject BlazorUI.Helpers.ApiHelper api;
 
 @inject Blazored.LocalStorage.ILocalStorageService localStorageService;
+@inject IJSRuntime JSRuntime;
 
 @using BlazorUI.Helpers;
 
 
 @code {
 
-    Domain.DTO.ShoppingCartDTO CurrentShoppingCart = new Domain.DTO.ShoppingCartDTO();
+    Domain.DTO.ShoppingCartDTO CurrentShoppingCart = new Domain.DTO.ShoppingCartDTO()
+    {
+        ShoppingCartItems = new List<Domain.DTO.ShoppingCartItemDTO>()
+    };
 
     decimal TotalPrice => CurrentShoppingCart.ShoppingCartItems.Sum(x => x.Quantity * x.Product.CalculatedPrice);
 
@@ -179,7 +184,7 @@
     bool ShippingEquals(decimal d1) => d1 == CurrentShoppingCart.ShippingValue;
 
     Dictionary<string, decimal> ValidCouponCodes = new Dictionary<string, decimal>()
-    {
+{
         { "OK", 1 },
         {"POPUST", 5},
         {"1", 1},
@@ -188,13 +193,38 @@
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        if(firstRender)
+        if (firstRender)
         {
             var cart = await localStorageService.GetLocalStorageItem<Domain.DTO.ShoppingCartDTO>("ShoppingCart");
+
+            if (cart == null)
+            {
+                cart = new Domain.DTO.ShoppingCartDTO()
+                {
+                    ShoppingCartItems = new List<Domain.DTO.ShoppingCartItemDTO>()
+                };
+            }
+            else
+            {
+                if (cart.ShoppingCartItems == null)
+                {
+                    cart.ShoppingCartItems = new List<Domain.DTO.ShoppingCartItemDTO>();
+                }
+            }
 
             CurrentShoppingCart = cart;
 
             StateHasChanged();
+        }
+    }
+
+    async Task RemoveFromCart(int productId)
+    {
+        var productToRemove = CurrentShoppingCart.ShoppingCartItems.FirstOrDefault(x => x.Product != null && x.Product.Id == productId);
+        if (productToRemove != null)
+        {
+            CurrentShoppingCart.ShoppingCartItems.Remove(productToRemove);
+            await JSRuntime.InvokeAsync<object>("alert", "Product was removed from your Cart!");
         }
     }
 

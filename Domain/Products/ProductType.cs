@@ -1,6 +1,7 @@
 ﻿using Domain.Common;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
 namespace Domain.Products
@@ -13,6 +14,9 @@ namespace Domain.Products
 
         public int? ParentProductTypeId { get; set; }
         public ProductType ParentProductType { get; set; }
+
+        [NotMapped]
+        public bool Expanded { get; set; }
 
         public virtual List<ProductType> SubTypes { get; set; }
 

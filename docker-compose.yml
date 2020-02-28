@@ -1,17 +1,6 @@
 version: '3.4'
 
 services:
-#  ui:
-#    image: ${DOCKER_REGISTRY-}ui
-#    container_name: 'FRONT'
-#    build:
-#      context: .
-#      dockerfile: UI/Dockerfile
-#    networks:
-#      webNetwork:
-#        ipv4_address: 10.5.0.5
-#    depends_on:
-#     - api
   blazorui:
     image: ${DOCKER_REGISTRY-}blazorui
     container_name: 'BLAZORUI'
@@ -68,15 +57,6 @@ services:
     networks:
       webNetwork:
         ipv4_address: 10.5.0.7
-#  nginx:
-#    image: ${DOCKER_REGISTRY-}nginx
-#    container_name: 'SERVER'
-#    build:
-#      context: .
-#      dockerfile: API\DB\Nginx\Dockerfile
-#    networks:
-#      webNetwork:
-#        ipv4_address: 10.5.0.8
 
 volumes:
   database-data: # named volumes can be managed easier using docker-
