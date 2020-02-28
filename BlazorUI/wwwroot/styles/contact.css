@@ -1,4 +1,4 @@
-@charset "utf-8";
+﻿@charset "utf-8";
 /* CSS Document */
 
 /******************************
@@ -810,8 +810,8 @@ section
 	background: #FFFFFF;
 	z-index: 2;
 	padding-top: 130px;
-	padding-left: 60px;
-	padding-right: 60px;
+	/*padding-left: 60px;
+	padding-right: 60px;*/
 }
 .home_container
 {
@@ -1082,4 +1082,21 @@ section
 .footer_social ul li a i:hover
 {
 	color: #FFFFFF;
+}
+@font-face {
+	font-family: Cyttah;
+	src: url(/fonts/CyttahDemoRegular.ttf) format('truetype')
+}
+
+@font-face {
+	font-family: YellowTailRegular;
+	src: url(/fonts/Yellowtail-Regular.ttf) format('truetype')
+}
+
+.logo a {
+	color: #f12845;
+	font-size: 70px;
+	font-style: italic;
+	font-family: YellowTailRegular;
+	text-shadow: rgb(0, 0, 0) 1px 0px 0px, rgb(0, 0, 0) 0.540302px 0.841471px 0px, rgb(0, 0, 0) -0.416147px 0.909297px 0px, rgb(0, 0, 0) -0.989992px 0.14112px 0px, rgb(0, 0, 0) -0.653644px -0.756802px 0px, rgb(0, 0, 0) 0.283662px -0.958924px 0px, rgb(0, 0, 0) 0.96017px -0.279415px 0px;
 }
